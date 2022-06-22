@@ -25,6 +25,7 @@ Route::get('/daftar', [App\Http\Controllers\Auth\RegisterController::class, 'sho
 Route::post('/register', [App\Http\Controllers\UserController::class, 'storeuser'])->name('register.store');
 
 Route::middleware('role:admin')->group(function () {
+    Route::get('sendemail', [App\Http\Controllers\EmailController::class, 'index']);
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.admin');
     Route::post('updatestatus', [App\Http\Controllers\TrxPendaftaranController::class, 'updatestatus'])->name('update.status');
     Route::prefix('/master')->group(function () {

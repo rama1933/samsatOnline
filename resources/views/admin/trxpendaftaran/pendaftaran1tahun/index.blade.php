@@ -104,7 +104,17 @@
         method: "POST",
         headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
         data: { id: id, status: status,type:type},
-        beforeSend: function() {},
+        beforeSend: function () {
+        swal({
+        title:"",
+        text:"Sedang Mengirim Email, Loading...",
+        icon: "https://www.boasnotas.com/img/loading2.gif",
+        buttons: false,
+        closeOnClickOutside: false,
+        timer: 100000,
+        //icon: "success"
+        });
+        },
         success: function(data) {
         $('#table').DataTable().ajax.reload();
         swal('Berhasil Mengubah status', {

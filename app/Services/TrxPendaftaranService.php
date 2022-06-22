@@ -9,6 +9,9 @@ use App\Models\Pendaftaran5tahun;
 use App\Models\PendaftaranBalik;
 use App\Models\PendaftaranDuplikat;
 use App\Models\PendaftaranKuasa;
+use App\Mail\SendEmail;
+use App\Models\Biodata;
+use Illuminate\Support\Facades\Mail;
 
 class TrxPendaftaranService
 {
@@ -42,8 +45,27 @@ class TrxPendaftaranService
             [
                 "status" => $data['status'],
             ];
-
+        $bio = Biodata::find($find['biodata_id']);
         $find->update($toward);
+
+
+
+        $text = '';
+        if ($data['status'] == 0) {
+            $text = 'belum di verifikasi';
+        }
+        if ($data['status'] == 1) {
+            $text = 'di proses';
+        }
+        if ($data['status'] == 2) {
+            $text = 'Selesai';
+        }
+
+        $details = [
+            'title' => 'UUPD SAMSAT KANDANGAN',
+            'body' => 'Pendaftaran Anda Tanggal ' . $find['tanggal'] . ' Telah ' . $text . ''
+        ];
+        Mail::to($bio['email'])->send(new SendEmail($details));
         return true;
     }
 }
