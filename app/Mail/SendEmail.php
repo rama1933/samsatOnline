@@ -29,6 +29,6 @@ class SendEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('ini adalah conatoh kirim email dengan laravel')->view('email.index');
+        return $this->subject('UPPD SAMSAT KANDANGAN')->view('email.index');
     }
 }

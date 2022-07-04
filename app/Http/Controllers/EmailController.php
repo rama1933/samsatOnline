@@ -13,7 +13,7 @@ class EmailController extends Controller
     {
 
         $details = [
-            'title' => 'UUPD SAMSAT KANDANGAN',
+            'title' => 'UPPD SAMSAT KANDANGAN',
             'body' => 'Pendaftaran Anda Telah Selesai'
         ];
 
