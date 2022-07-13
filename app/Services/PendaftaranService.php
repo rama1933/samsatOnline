@@ -45,6 +45,7 @@ class PendaftaranService
             "user_id" => $data['user_id'],
             "biodata_id" => $data['biodata_id'],
             "nopol" => $data['nopol'],
+            "tempat" => $data['tempat'],
             "merk" => $data['merk'],
             "tahun" => $data['tahun'],
             "no_rangka" => $data['no_rangka'],
@@ -68,6 +69,7 @@ class PendaftaranService
         if (!isset($data['ktp']) and !isset($data['stnk']) and !isset($data['pajak']) and !isset($data['bpkb'])) {
             $toward =
                 [
+                    "tempat" => $data['tempat'],
                     "nopol" => $data['nopol'],
                     "merk" => $data['merk'],
                     "tahun" => $data['tahun'],
@@ -137,6 +139,7 @@ class PendaftaranService
                     "tahun" => $data['tahun'],
                     "no_rangka" => $data['no_rangka'],
                     "no_mesin" => $data['no_mesin'],
+                    "tempat" => $data['tempat'],
                     "ktp" => $ktp,
                     "pajak" => $pajak,
                     "stnk" => $stnk,

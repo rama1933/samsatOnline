@@ -44,6 +44,9 @@
                         Tahun
                     </th>
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
+                        UPPD
+                    </th>
+                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
                         No Rangka
                     </th>
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">

@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="form-group col-lg-12">
-                            <label for="surat_keterangan">Upload Surat Keterangan</label>
+                            <label for="surat_keterangan">Upload Rekom Polda</label>
                             <input type="file" class="form-control" name="surat_keterangan" required />
                         </div>
 
@@ -149,7 +149,7 @@
                         </div>
 
                         <div class="form-group col-lg-12">
-                            <label for="surat_keterangan">Upload Surat Keterangan</label>
+                            <label for="surat_keterangan">Upload Rekom Polda</label>
                             <input type="file" class="form-control" name="surat_keterangan" />
                         </div>
 

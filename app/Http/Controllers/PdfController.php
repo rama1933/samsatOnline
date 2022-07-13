@@ -93,6 +93,14 @@ class PdfController extends Controller
         return $pdf->stream('kuasa.pdf');
     }
 
+    public function indexpendaftaransuratkuasapdf(Request $request)
+    {
+        $data['data'] = $request->all();
+        // dd($data['data']);
+        $pdf = PDF::loadview('pdf.user.pendaftaran.pendaftarankuasa.surat', $data)->setPaper('a4', 'landscape');
+        return $pdf->stream('kuasa.pdf');
+    }
+
     public function indexpendaftaranbalikpdf(Request $request)
     {
         $user_id = auth()->user()->id;
@@ -145,7 +153,14 @@ class PdfController extends Controller
     public function indexpendaftaran1tahunadminpdf(Request $request)
     {
         $user_id = auth()->user()->id;
-        $data['data'] = $this->pendaftaran1tahunService->getDataPendaftaran1tahun();
+        if ($request->input('status') == 0) {
+            $data['data'] = Pendaftaran1tahun::with('biodata')->where('status', '0')->get();
+        } elseif ($request->input('status') == 1) {
+            $data['data'] = Pendaftaran1tahun::with('biodata')->where('status', '1')->get();
+        } else {
+            $data['data'] = Pendaftaran1tahun::with('biodata')->where('status', '2')->get();
+        }
+
         $pdf = PDF::loadview('pdf.admin.pendaftaran.pendaftaran1tahun.index', $data)->setPaper('a4', 'landscape');
         return $pdf->stream('1tahun.pdf');
     }
@@ -161,7 +176,13 @@ class PdfController extends Controller
     public function indexpendaftaran5tahunadminpdf(Request $request)
     {
         $user_id = auth()->user()->id;
-        $data['data'] = $this->pendaftaran5tahunService->getDataPendaftaran5tahun();
+        if ($request->input('status') == 0) {
+            $data['data'] = Pendaftaran5tahun::with('biodata')->where('status', '0')->get();
+        } elseif ($request->input('status') == 1) {
+            $data['data'] = Pendaftaran5tahun::with('biodata')->where('status', '1')->get();
+        } else {
+            $data['data'] = Pendaftaran5tahun::with('biodata')->where('status', '2')->get();
+        }
         $pdf = PDF::loadview('pdf.admin.pendaftaran.pendaftaran5tahun.index', $data)->setPaper('a4', 'landscape');
         return $pdf->stream('5tahun.pdf');
     }
@@ -177,7 +198,13 @@ class PdfController extends Controller
     public function indexpendaftarankuasaadminpdf(Request $request)
     {
         $user_id = auth()->user()->id;
-        $data['data'] = $this->pendaftarankuasaService->getDataPendaftaranKuasa();
+        if ($request->input('status') == 0) {
+            $data['data'] = PendaftaranKuasa::with('biodata')->where('status', '0')->get();
+        } elseif ($request->input('status') == 1) {
+            $data['data'] = PendaftaranKuasa::with('biodata')->where('status', '1')->get();
+        } else {
+            $data['data'] = PendaftaranKuasa::with('biodata')->where('status', '2')->get();
+        }
         $pdf = PDF::loadview('pdf.admin.pendaftaran.pendaftarankuasa.index', $data)->setPaper('a4', 'landscape');
         return $pdf->stream('kuasa.pdf');
     }
@@ -193,7 +220,13 @@ class PdfController extends Controller
     public function indexpendaftaranbalikadminpdf(Request $request)
     {
         $user_id = auth()->user()->id;
-        $data['data'] = $this->pendaftaranbalikService->getDataPendaftaranBalik();
+        if ($request->input('status') == 0) {
+            $data['data'] = PendaftaranBalik::with('biodata')->where('status', '0')->get();
+        } elseif ($request->input('status') == 1) {
+            $data['data'] = PendaftaranBalik::with('biodata')->where('status', '1')->get();
+        } else {
+            $data['data'] = PendaftaranBalik::with('biodata')->where('status', '2')->get();
+        }
         $pdf = PDF::loadview('pdf.admin.pendaftaran.pendaftaranbalik.index', $data)->setPaper('a4', 'landscape');
         return $pdf->stream('balik.pdf');
     }
@@ -209,7 +242,13 @@ class PdfController extends Controller
     public function indexpendaftaranduplikatadminpdf(Request $request)
     {
         $user_id = auth()->user()->id;
-        $data['data'] = $this->pendaftaranduplikatService->getDataPendaftaranDuplikat();
+        if ($request->input('status') == 0) {
+            $data['data'] = PendaftaranDuplikat::with('biodata')->where('status', '0')->get();
+        } elseif ($request->input('status') == 1) {
+            $data['data'] = PendaftaranDuplikat::with('biodata')->where('status', '1')->get();
+        } else {
+            $data['data'] = PendaftaranDuplikat::with('biodata')->where('status', '2')->get();
+        }
         $pdf = PDF::loadview('pdf.admin.pendaftaran.pendaftaranduplikat.index', $data)->setPaper('a4', 'landscape');
         return $pdf->stream('duplikat.pdf');
     }

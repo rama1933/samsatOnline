@@ -37,6 +37,7 @@ class PendaftaranKuasaService
         $pendaftaran = PendaftaranKuasa::create([
             "user_id" => $data['user_id'],
             "biodata_id" => $data['biodata_id'],
+            "jenis" => $data['jenis'],
             "nopol" => $data['nopol'],
             "merk" => $data['merk'],
             "tahun" => $data['tahun'],
@@ -57,11 +58,12 @@ class PendaftaranKuasaService
     public static function updatePendaftaranKuasa($id, array $data)
     {
         $find = PendaftaranKuasa::find($id);
-        $ser = new PendaftaranKuasa();
+        $ser = new PendaftaranKuasaService();
         $val = $ser->getDataPendaftaranKuasa($id);
         if (!isset($data['ktp']) and !isset($data['stnk']) and !isset($data['pajak']) and !isset($data['bpkb']) and !isset($data['surat_kuasa'])) {
             $toward =
                 [
+                    "jenis" => $data['jenis'],
                     "nopol" => $data['nopol'],
                     "merk" => $data['merk'],
                     "tahun" => $data['tahun'],
@@ -138,6 +140,7 @@ class PendaftaranKuasaService
             }
             $toward =
                 [
+                    "jenis" => $data['jenis'],
                     "nopol" => $data['nopol'],
                     "merk" => $data['merk'],
                     "tahun" => $data['tahun'],

@@ -12,9 +12,14 @@
                 <h4 class="card-title"> TABEL PENDAFTARAN ULANG 1 TAHUN BUKAN
                 ATAS NAMA PEMILIK KENDARAAN</h4>
             </div>
+
             <div class="col-6">
+
                 <button data-toggle="modal" data-target="#modal-create" class="btn btn-md btn-primary float-right"><i class="fa fa-plus"></i>
                     Tambah</button>
+                    <button data-toggle="modal" data-target="#modal-create-kuasa" class="btn btn-md btn-primary mr-3 float-right"><i
+                            class="fa fa-plus"></i>
+                        Buat Surat Kuasa</button>
             </div>
         </div>
     </div>
@@ -37,6 +42,9 @@
                     </th>
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
                         Tahun
+                    </th>
+                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
+                        Jenis Pendaftaran
                     </th>
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
                         No Rangka

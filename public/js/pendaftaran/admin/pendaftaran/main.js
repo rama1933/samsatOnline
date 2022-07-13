@@ -51,6 +51,10 @@ function datatable() {
                 name: 'tahun'
             },
             {
+                data: 'tempat',
+                name: 'tempat'
+            },
+            {
                 data: 'tanggal',
                 name: 'tanggal'
             },

@@ -82,6 +82,7 @@
                 <th>No mesin</th>
                 <th>Merk</th>
                 <th>Tahun Pembuatan</th>
+                <th>UUPD</th>
                 <th>Tanggal Pengajuan</th>
                 <th>Status</th>
             </tr>
@@ -95,6 +96,7 @@
             <td>{{ $data->no_mesin }}</td>
             <td>{{ $data->merk }}</td>
             <td>{{ $data->tahun }}</td>
+            <td>{{ $data->tempat }}</td>
             <td>{{ date('d-m-Y',strtotime($data->tanggal)) }}</td>
             <td>
                 @if ($data->status == 0)
@@ -111,7 +113,7 @@
             @endforeach
         </tbody>
     </table>
-    <div class="row" style="text-align: center;float:right;width: 30%;">
+   <div class="row" style="text-align: center;float:right;width: 30%;">
         <div>
             {{-- <table style="margin-top: 10px;width: 100%;border: none">
                 <tr style="border: none">
@@ -129,12 +131,14 @@
             <h4 style="margin-bottom: 90px;margin-top: 15px">
                 Mengetahui, <br>
                 <h4 style="margin-top: 2px">
-                    A.n Plt. Kepala UPPD Kandangan
-                    kasi pelayanan PKB BBNKB
+                    An. Kepala UPPD Kandangan
+                    Kasi pelayanan PKB BBN KB
                 </h4>
             </h4>
             <h4 style="margin-bottom: -6px">
-                Gusti roby azwar, S.ap
+                GUSTI ROBY AZWAR, S.AP
+                <br>
+                NIP. 19670603 199303 1 011
             </h4>
             {{--
             <hr>

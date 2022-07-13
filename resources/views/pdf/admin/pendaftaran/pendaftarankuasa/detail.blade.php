@@ -79,7 +79,7 @@
             <tr>
                 <th style="text-align: left">Jenis Pendaftaran</th>
                 <td style="text-align: center">:</td>
-                <td style="padding-left: 10px">PENDAFTARAN ULANG 1 TAHUN BUKAN ATAS NAMA PEMILIK KENDARAAN</td>
+                <td style="padding-left: 10px">{{ $data->jenis }}</td>
             </tr>
             <tr>
                 <th style="text-align: left">Nik</th>
@@ -174,12 +174,14 @@
             <h4 style="margin-bottom: 90px;margin-top: 15px">
                 Mengetahui, <br>
                 <h4 style="margin-top: 2px">
-                    A.n Plt. Kepala UPPD Kandangan
-                    kasi pelayanan PKB BBNKB
+                    An. Kepala UPPD Kandangan
+                    Kasi pelayanan PKB BBN KB
                 </h4>
             </h4>
             <h4 style="margin-bottom: -6px">
-                Gusti roby azwar, S.ap
+                GUSTI ROBY AZWAR, S.AP
+                <br>
+                NIP. 19670603 199303 1 011
             </h4>
             {{--
             <hr>

@@ -183,6 +183,7 @@ class PendaftaranController extends Controller
                 'pajak' => $data->pajak,
                 'stnk' => $data->stnk,
                 'bpkb' => $data->bpkb,
+                'tempat' => $data->tempat,
             ]
         );
     }

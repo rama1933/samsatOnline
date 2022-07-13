@@ -50,21 +50,40 @@ class TrxPendaftaranService
 
 
 
+        $date = date('Y-m-d');
+        $date = strtotime($date);
+        $date = strtotime("+7 day", $date);
+        $after = date('d-m-Y', $date);
+        // dd($after);
         $text = '';
         if ($data['status'] == 0) {
-            $text = 'belum di verifikasi';
+            $details = [
+                'title' => 'UUPD SAMSAT KANDANGAN',
+                'body' => 'Pendaftaran Anda sedang diverifikasi'
+            ];
         }
         if ($data['status'] == 1) {
-            $text = 'di proses';
+            $details = [
+                'title' => 'UUPD SAMSAT KANDANGAN',
+                'body' => 'Pendaftaran Formulir Pajak Kendaraan Bermotor Anda tanggal ' . $find['tanggal'] . ' sedang diproses.
+                            Silahkan upload ulang berkas.
+                            '
+            ];
         }
         if ($data['status'] == 2) {
-            $text = 'Selesai';
+            $details = [
+                'title' => 'UUPD SAMSAT KANDANGAN',
+                'body' => 'Pendaftaran Formulir Pajak Kendaraan Bermotor Anda ' . $find['tanggal'] . ' telah selesai.
+                           Silahkan datang ke Kantor SAMSAT Kandangan
+                           untuk Melanjutkan proses
+                           Pendaftaran Pajak Kendaraan Bermotor
+                           pada Layanan 6
+                           (pendaftaran berlaku 7hari kalender (tgl ' . date('d-m-Y') . ' - ' . $after . ')
+'
+            ];
         }
 
-        $details = [
-            'title' => 'UUPD SAMSAT KANDANGAN',
-            'body' => 'Pendaftaran Anda Tanggal ' . $find['tanggal'] . ' Telah ' . $text . ''
-        ];
+
         Mail::to($bio['email'])->send(new SendEmail($details));
         return true;
     }

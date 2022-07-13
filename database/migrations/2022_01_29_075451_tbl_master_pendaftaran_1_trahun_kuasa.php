@@ -18,6 +18,7 @@ class TblMasterPendaftaran1TrahunKuasa extends Migration
             // $table->string('jenis', 255)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('biodata_id');
+            $table->string('jenis', 255)->nullable();
             $table->string('nopol', 100)->nullable();
             $table->string('merk', 255)->nullable();
             $table->string('tahun', 4)->nullable();

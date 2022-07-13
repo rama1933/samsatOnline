@@ -104,27 +104,27 @@ Route::middleware('role:admin')->group(function () {
 
         Route::prefix('/pdf')->group(function () {
             Route::prefix('/pendaftaran1tahunadmin')->group(function () {
-                Route::get('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaran1tahunadminpdf'])->name('pdf.1tahunadmin');
+                Route::any('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaran1tahunadminpdf'])->name('pdf.1tahunadmin');
                 Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftaran1tahundetailadminpdf'])->name('pdf.1tahunadmindetail');
             });
 
             Route::prefix('/pendaftaran5tahunadmin')->group(function () {
-                Route::get('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaran5tahunadminpdf'])->name('pdf.5tahunadmin');
+                Route::any('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaran5tahunadminpdf'])->name('pdf.5tahunadmin');
                 Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftaran5tahundetailadminpdf'])->name('pdf.5tahunadmindetail');
             });
 
             Route::prefix('/pendaftarankuasaadmin')->group(function () {
-                Route::get('/', [App\Http\Controllers\PdfController::class, 'indexpendaftarankuasaadminpdf'])->name('pdf.kuasaadmin');
+                Route::any('/', [App\Http\Controllers\PdfController::class, 'indexpendaftarankuasaadminpdf'])->name('pdf.kuasaadmin');
                 Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftarankuasaadmindetailadminpdf'])->name('pdf.kuasaadmindetail');
             });
 
             Route::prefix('/pendaftaranbalikadmin')->group(function () {
-                Route::get('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaranbalikadminpdf'])->name('pdf.balikadmin');
+                Route::any('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaranbalikadminpdf'])->name('pdf.balikadmin');
                 Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftaranbalikadminpdf'])->name('pdf.balikadmindetail');
             });
 
             Route::prefix('/pendaftaranduplikatadmin')->group(function () {
-                Route::get('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaranduplikatadminpdf'])->name('pdf.duplikatadmin');
+                Route::any('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaranduplikatadminpdf'])->name('pdf.duplikatadmin');
                 Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftaranduplikatadmindetailpdf'])->name('pdf.duplikatadmindetail');
             });
 
@@ -167,6 +167,8 @@ Route::middleware('role:user')->group(function () {
         Route::prefix('/pendaftarankuasa')->group(function () {
             Route::get('/', [App\Http\Controllers\PdfController::class, 'indexpendaftarankuasapdf'])->name('pdf.kuasa');
             Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftarankuasadetailpdf'])->name('pdf.kuasadetail');
+
+            Route::post('/surat', [App\Http\Controllers\PdfController::class, 'indexpendaftaransuratkuasapdf'])->name('pdf.surat');
         });
 
         Route::prefix('/pendaftaranbalik')->group(function () {

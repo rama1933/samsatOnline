@@ -18,14 +18,91 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td>
-                                <h5>Cetak Laporan Pendaftaran 1 tahun</h5>
-                            </td>
-                            <td>
-                                <a href="{{route('pdf.1tahunadmin')}}" target="_blank" class="btn btn-success"><i class="fa fa-print"></i></a>
-                            </td>
+                            <form action="{{route('pdf.1tahunadmin')}}" target="_blank">
+                                <td>
+                                   <h5>Cetak Laporan Pendaftaran 1 tahun</h5>
+                                </td>
+                                <td>
+                                    <select name="status" id="status" class="form-control select2" style="width:100%" required>
+                                        <option value="0">Belum Diverifikasi</option>
+                                        <option value="1">Diproses</option>
+                                        <option value="2">Selesai</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-print"></i></button>
+                                </td>
+                            </form>
                         </tr>
                         <tr>
+                            <form action="{{route('pdf.5tahunadmin')}}" target="_blank">
+                                <td>
+                                    <h5>Cetak Laporan Pendaftaran 5 tahun</h5>
+                                </td>
+                                <td>
+                                    <select name="status" id="status" class="form-control select2" style="width:100%" required>
+                                        <option value="0">Belum Diverifikasi</option>
+                                        <option value="1">Diproses</option>
+                                        <option value="2">Selesai</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-print"></i></button>
+                                </td>
+                            </form>
+                        </tr>
+                        <tr>
+                            <form action="{{route('pdf.kuasaadmin')}}" target="_blank">
+                                <td>
+                                    <h5>Cetak Laporan Pendaftaran 1 tahun bukan atas nama pemilik kendaraan</h5>
+                                </td>
+                                <td>
+                                    <select name="status" id="status" class="form-control select2" style="width:100%" required>
+                                        <option value="0">Belum Diverifikasi</option>
+                                        <option value="1">Diproses</option>
+                                        <option value="2">Selesai</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-print"></i></button>
+                                </td>
+                            </form>
+                        </tr>
+                        <tr>
+                            <form action="{{route('pdf.duplikatadmin')}}" target="_blank">
+                                <td>
+                                   <h5>Cetak Laporan Pendaftaran Duplikat</h5>
+                                </td>
+                                <td>
+                                    <select name="status" id="status" class="form-control select2" style="width:100%" required>
+                                        <option value="0">Belum Diverifikasi</option>
+                                        <option value="1">Diproses</option>
+                                        <option value="2">Selesai</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-print"></i></button>
+                                </td>
+                            </form>
+                        </tr>
+                        <tr>
+                            <form action="{{route('pdf.balikadmin')}}" target="_blank">
+                                <td>
+                                    <h5>Cetak Laporan Pendaftaran Bea Balik Nama (BBN)</h5>
+                                </td>
+                                <td>
+                                    <select name="status" id="status" class="form-control select2" style="width:100%" required>
+                                        <option value="0">Belum Diverifikasi</option>
+                                        <option value="1">Diproses</option>
+                                        <option value="2">Selesai</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-print"></i></button>
+                                </td>
+                            </form>
+                        </tr>
+                        {{--  <tr>
                             <td>
                                 <h5>Cetak Laporan Pendaftaran 5 tahun</h5>
                             </td>
@@ -58,14 +135,16 @@
                             </td>
                         </tr>
                         <tr>
-                        <td>
+                        <td>  --}}
+                        <tr>
+                        <td colspan="2">
                             <h5>Cetak Biodata</h5>
                         </td>
                         <td><a href="{{ route('pdf.biodataadmin') }}" target="_blank" class="btn btn-success"><i class="fa fa-print"></i></a>
                         </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td colspan="2">
                                 <h5>Cetak User</h5>
                             </td>
                             <td><a href="{{ route('pdf.user') }}" target="_blank" class="btn btn-success"><i

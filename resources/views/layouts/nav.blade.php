@@ -16,7 +16,7 @@
                         <!-- Light Logo icon -->
                         <img src="{{asset('')}}package/src/assets/images/logo-icon.png" alt="homepage"  class="light-logo mb-2" />
 
-                        UUPD SAMSAT
+                        UPPD SAMSAT
                     </b>
                     <!--End Logo icon -->
                     <!-- Logo text -->

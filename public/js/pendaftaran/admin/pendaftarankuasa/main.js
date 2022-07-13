@@ -43,6 +43,10 @@ function datatable() {
                 name: 'tahun'
             },
             {
+                data: 'jenis',
+                name: 'jenis'
+            },
+            {
                 data: 'no_rangka',
                 name: 'no_rangka'
             },

@@ -73,7 +73,7 @@
                         </span></a>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('pendaftarankuasa.index') }}" aria-expanded="false"><i
-                            data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Surat Kuasa
+                            data-feather="file-text" class="feather-icon"></i><span class="hide-menu">Dengan Surat Kuasa
                         </span></a>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('pendaftaranduplikat.index') }}" aria-expanded="false"><i

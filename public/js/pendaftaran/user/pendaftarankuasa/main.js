@@ -35,6 +35,10 @@ function datatable() {
                 name: 'tahun'
             },
             {
+                data: 'jenis',
+                name: 'jenis'
+            },
+            {
                 data: 'no_rangka',
                 name: 'no_rangka'
             },
@@ -127,6 +131,7 @@ function edit(id) {
             $('#merkEdit').val(response['merk']);
             $('#norangkaEdit').val(response['no_rangka']);
             $('#nomesinEdit').val(response['no_mesin']);
+            $('#jenisEdit').prepend('<option selected="selected" value="' + response.jenis + '">' + response.jenis + '</option>');
         }
     })
 }

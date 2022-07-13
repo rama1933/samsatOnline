@@ -169,6 +169,7 @@ class PendaftaranKuasaController extends Controller
                 'pajak' => $data->pajak,
                 'stnk' => $data->stnk,
                 'bpkb' => $data->bpkb,
+                'jenis' => $data->jenis,
                 'surat_kuasa' => $data->surat_kuasa,
             ]
         );
