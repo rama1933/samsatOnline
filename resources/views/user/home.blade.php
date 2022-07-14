@@ -73,8 +73,7 @@
                                 <span class="opacity-7 text-muted"><i data-feather="plus"></i></span>
                             </div>
                             <a href="{{ route('pendaftaran1tahunonline.index') }}">
-                                <h4 class="text-muted font-weight-normal ml-4 mt-2 w-100 text-truncate">PENDAFTARAN ULANG 1 ONLINE
-                                    TAHUN</h4>
+                                <h4 class="text-muted font-weight-normal ml-4 mt-2 w-100 text-truncate">PENDAFTARAN ULANG 1 TAHUN ONLINE</h4>
                             </a>
                         </div>
                     </div>
