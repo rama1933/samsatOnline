@@ -27,6 +27,14 @@
                         </tr>
                         <tr>
                             <td>
+                                <h5>Cetak Laporan Pendaftaran 1 tahun Online</h5>
+                            </td>
+                            <td>
+                                <a href="{{route('pdf.1tahunonline')}}" target="_blank" class="btn btn-success"><i class="fa fa-print"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <h5>Cetak Laporan Pendaftaran 5 tahun</h5>
                             </td>
                             <td>

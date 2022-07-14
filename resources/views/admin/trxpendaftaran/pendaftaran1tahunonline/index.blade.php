@@ -11,22 +11,28 @@
             <div class="col-6">
                 <h4 class="card-title"> TABEL PENDAFTARAN 1 TAHUN</h4>
             </div>
-            <div class="col-6">
+            {{-- <div class="col-6">
                 <button data-toggle="modal" data-target="#modal-create" class="btn btn-md btn-primary float-right"><i class="fa fa-plus"></i>
                     Tambah</button>
-            </div>
+            </div> --}}
         </div>
     </div>
     <div class="card-body">
         <div class="ml-md-auto">
-        <a href="{{ route('pdf.1tahun') }}" target="_blank" title="Unduh Dokumen (PDF)"
-    class="btn btn-md btn-success mb-3"><i class="fa fa-print"></i> Cetak</a>
+            <a href="{{ route('pdf.1tahunonlineadmin') }}" target="_blank" title="Unduh Dokumen (PDF)"
+                class="btn btn-md btn-success mb-3"><i class="fa fa-print"></i> Cetak</a>
         </div>
         <div class="table-responsive">
             <table class="table" id="table">
                 <thead class="bg-primary text-white">
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
                         No
+                    </th>
+                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
+                        Nik
+                    </th>
+                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
+                        Nama
                     </th>
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
                         No Polisi
@@ -37,9 +43,9 @@
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
                         Tahun
                     </th>
-                    {{--  <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
+                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
                         UPPD
-                    </th>  --}}
+                    </th>
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
                         No Rangka
                     </th>
@@ -62,6 +68,9 @@
                         BPKB
                     </th>
                     <th style="padding-left:80px;padding-right:80px;border-spacing: 0px;white-space: nowrap;">
+                        Status
+                    </th>
+                    <th style="padding-left:80px;padding-right:80px;border-spacing: 0px;white-space: nowrap;">
                         Aksi
                     </th>
 
@@ -73,7 +82,7 @@
     </div>
 </div>
 
-@include('user.pendaftaran.pendaftaran1tahun.form')
+@include('admin.trxpendaftaran.pendaftaran1tahunonline.form')
 @endsection
 
 @section('custom_js')
@@ -89,6 +98,34 @@
         return false;
         return true;
         }
+
+        function status(id) {
+        let status = $(".status" + id).val(),
+        type = '1tahunonline';
+        $.ajax({
+        url: window.location.origin + '/updatestatus',
+        method: "POST",
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        data: { id: id, status: status,type:type},
+        beforeSend: function () {
+        swal({
+        title:"",
+        text:"Sedang Mengirim Email, Loading...",
+        icon: "https://www.boasnotas.com/img/loading2.gif",
+        buttons: false,
+        closeOnClickOutside: false,
+        timer: 100000,
+        //icon: "success"
+        });
+        },
+        success: function(data) {
+        $('#table').DataTable().ajax.reload();
+        swal('Berhasil Mengubah status', {
+        icon: 'success',
+        });
+        }
+        });
+        }
 </script>
-<script src="{{asset('js/pendaftaran/user/pendaftaran1tahun/main.js')}}"></script>
+<script src="{{asset('js/pendaftaran/admin/pendaftaran1tahunonline/main.js')}}"></script>
 @endsection

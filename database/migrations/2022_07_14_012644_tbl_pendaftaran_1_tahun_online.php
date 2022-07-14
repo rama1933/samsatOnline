@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class TblMasterPendaftaran extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class TblMasterPendaftaran extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_pendaftaran_1_tahun', function (Blueprint $table) {
+        Schema::create('tbl_pendaftaran_1_tahun_online', function (Blueprint $table) {
             $table->id();
-            // $table->string('jenis', 255)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('biodata_id');
-            // $table->string('tempat', 255)->nullable();
+            $table->string('tempat', 255)->nullable();
             $table->string('nopol', 100)->nullable();
             $table->string('merk', 255)->nullable();
             $table->string('tahun', 4)->nullable();
@@ -43,6 +42,6 @@ class TblMasterPendaftaran extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_master_pendaftaran');
+        Schema::dropIfExists('tbl_pendaftaran_1_tahun_online');
     }
-}
+};

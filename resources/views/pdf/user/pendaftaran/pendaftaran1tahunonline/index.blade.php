@@ -77,6 +77,7 @@
         <thead>
             <tr>
                 <th>No</th>
+                <th>UUPD</th>
                 <th>Nopol</th>
                 <th>No rangka</th>
                 <th>No mesin</th>
@@ -89,6 +90,7 @@
             @foreach ($data as $data)
             <tr>
             <td>{{$loop->iteration}}</td>
+            <td>{{ $data->tempat }}</td>
             <td>{{ $data->nopol }}</td>
             <td>{{ $data->no_rangka }}</td>
             <td>{{ $data->no_mesin }}</td>

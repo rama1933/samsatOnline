@@ -3,36 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\PendaftaranService;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Validator;
-use App\Services\PendaftaranDuplikatService;
 
-class PendaftaranDuplikatController extends Controller
+class PendaftaranOnlineController extends Controller
 {
     public function __construct()
     {
-        $this->service = new PendaftaranDuplikatService();
+        $this->service = new PendaftaranService;
+    }
+    //
+    public function indexpendaftaran1tahunonline()
+    {
+        return view('user.pendaftaran.pendaftaran1tahunonline.index');
     }
 
-    public function indexpendaftaranduplikat()
+    public function indexpendaftaran1tahunonlineadmin()
     {
-        return view('user.pendaftaran.pendaftaranduplikat.index');
-    }
-
-    public function indexpendaftaranduplikatadmin()
-    {
-        return view('admin.trxpendaftaran.pendaftaranduplikat.index');
+        return view('admin.trxpendaftaran.pendaftaran1tahunonline.index');
     }
 
     public function data(Request $request)
     {
         $user = Auth::user()->hasRole('admin');
         if ($user) {
-            $data = $this->service->getDataPendaftaranduplikat();
+            $data = $this->service->getDataPendaftaran1tahunonline();
         } else {
             $user_id = auth()->user()->id;
-            $data = $this->service->getDataPendaftaranduplikat(user_id: $user_id);
+            $data = $this->service->getDataPendaftaran1tahunonline(user_id: $user_id);
         }
 
 
@@ -72,13 +72,6 @@ class PendaftaranDuplikatController extends Controller
                                                                 </i>
                                                             </a>';
             })
-            ->addColumn('download_surat_keterangan', function ($data) use ($request) {
-                return '<a href="' . asset('/storage') . '/' . $data->surat_keterangan . '"
-                                                                target="_blank" class="btn btn-sm btn-primary edit">
-                                                                <i class="fa fa-download">
-                                                                </i>
-                                                            </a>';
-            })
             ->addColumn('status', function ($data) use ($request) {
                 if ($data->status == 0) {
                     return '<select name="status" onchange="status(' . $data->id . ')" class="form-control status' . $data->id . '" >
@@ -104,23 +97,23 @@ class PendaftaranDuplikatController extends Controller
             })
             ->addColumn('button', function ($data) use ($request) {
                 return '
-                 <a href="/pdf/pendaftaranduplikat/detail/' . $data->id . '"  class="btn btn-sm btn-flat btn-warning" target="_blank" title="Unduh Dokumen (PDF)"><i class="fa fa-print"></i></a>
+                 <a href="/pdf/pendaftaran1tahunonline/detail/' . $data->id . '"  class="btn btn-sm btn-flat btn-warning" target="_blank" title="Unduh Dokumen (PDF)"><i class="fa fa-print"></i></a>
                  <button onclick="edit(' . $data->id . ')" data-toggle="modal" data-target="#modal-edit" class="btn btn-sm btn-flat btn-primary my-1"><i class="fa fa-edit"></i></button>
                 <button onclick="deletebtn(' . $data->id . ')" class="btn btn-sm btn-flat btn-danger my-1"><i class="fa fa-trash"></i></button>
                                    ';
             })
             ->addColumn('buttonadmin', function ($data) use ($request) {
                 return '
-                 <a href="/admin/pdf/pendaftaranduplikatadmin/detail/' . $data->id . '"  class="btn btn-sm btn-flat btn-warning" target="_blank" title="Unduh Dokumen (PDF)"><i class="fa fa-print"></i></a>
+                 <a href="/admin/pdf/pendaftaran1tahunonlineadmin/detail/' . $data->id . '"  class="btn btn-sm btn-flat btn-warning" target="_blank" title="Unduh Dokumen (PDF)"><i class="fa fa-print"></i></a>
+
                 <button onclick="deletebtn(' . $data->id . ')" class="btn btn-sm btn-flat btn-danger my-1"><i class="fa fa-trash"></i></button>
                                    ';
             })
-            ->rawColumns(['button', 'buttonadmin', 'download_ktp', 'download_pajak', 'download_stnk', 'download_bpkb', 'download_surat_keterangan', 'nik', 'nama', 'status'])
+            ->rawColumns(['button', 'buttonadmin', 'download_ktp', 'download_pajak', 'download_stnk', 'download_bpkb', 'nik', 'nama', 'status'])
             ->make(true);
     }
 
-
-    public function storependaftaranduplikat(Request $request)
+    public function storependaftaran1tahunonline(Request $request)
     {
         $validator = Validator::make(request()->all(), [
             'nopol' => 'required',
@@ -136,7 +129,7 @@ class PendaftaranDuplikatController extends Controller
                 "message" => $validator->errors()->first(),
             ]);
         } else {
-            $store = $this->service->storePendafataranduplikat($request->all());
+            $store = $this->service->storePendafataran1tahunonline($request->all());
             if ($store == true) {
                 return response()->json([
                     "status" => "success",
@@ -151,10 +144,16 @@ class PendaftaranDuplikatController extends Controller
         }
     }
 
-    public function showpendaftaranduplikat(Request $request)
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Pendaftaran  $pendaftaran
+     * @return \Illuminate\Http\Response
+     */
+    public function showpendaftaran1tahunonline(Request $request)
     {
         $id = $request->id;
-        $data = $this->service->getDataPendaftaranduplikat($id);
+        $data = $this->service->getDataPendaftaran1tahunonline($id);
         return response()->json(
             [
                 'id' => $data->id,
@@ -167,13 +166,19 @@ class PendaftaranDuplikatController extends Controller
                 'pajak' => $data->pajak,
                 'stnk' => $data->stnk,
                 'bpkb' => $data->bpkb,
-                'surat_keterangan' => $data->surat_keterangan,
+                'tempat' => $data->tempat,
             ]
         );
     }
 
-
-    public function updatependaftaranduplikat(Request $request)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdatePendaftaranRequest  $request
+     * @param  \App\Models\Pendaftaran  $pendaftaran
+     * @return \Illuminate\Http\Response
+     */
+    public function updatependaftaran1tahunonline(Request $request)
     {
         // dd(request()->all());
         $id = $request->id;
@@ -185,7 +190,7 @@ class PendaftaranDuplikatController extends Controller
                 "message" => $validator->errors()->first(),
             ]);
         } else {
-            $store = $this->service->updatePendaftaranduplikat($id, $request->all());
+            $store = $this->service->updatePendaftaran1tahunonline($id, $request->all());
             if ($store == true) {
                 return response()->json([
                     "status" => "success",
@@ -200,11 +205,16 @@ class PendaftaranDuplikatController extends Controller
         }
     }
 
-
-    public function deletependaftaranduplikat(Request $request)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Pendaftaran  $pendaftaran
+     * @return \Illuminate\Http\Response
+     */
+    public function deletependaftaran1tahunonline(Request $request)
     {
         $id = $request->id;
-        $data = $this->service->deleteDataPendaftaranduplikat($id);
+        $data = $this->service->deleteDataPendaftaran1tahunonline($id);
         if ($data == true) {
             return response()->json([
                 "status" => "success",

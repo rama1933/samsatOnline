@@ -34,10 +34,10 @@ function datatable() {
                 data: 'tahun',
                 name: 'tahun'
             },
-            {
-                data: 'tempat',
-                name: 'tempat'
-            },
+            // {
+            //     data: 'tempat',
+            //     name: 'tempat'
+            // },
             {
                 data: 'no_rangka',
                 name: 'no_rangka'
@@ -127,7 +127,6 @@ function edit(id) {
             $('#merkEdit').val(response['merk']);
             $('#norangkaEdit').val(response['no_rangka']);
             $('#nomesinEdit').val(response['no_mesin']);
-            $('#tempatEdit').prepend('<option selected="selected" value="' + response.tempat + '">' + response.tempat + '</option>');
         }
     })
 }

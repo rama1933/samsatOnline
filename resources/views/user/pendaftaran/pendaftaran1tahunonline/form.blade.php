@@ -5,7 +5,7 @@
                 <h5 class="modal-title mb-2">Tambah Data</h5>
             </div>
             <div class="modal-body">
-                <form method="post" id="form-create" action="{{ route('pendaftaran1tahun.store') }}" enctype="multipart/form-data">
+                <form method="post" id="form-create" action="{{ route('pendaftaran1tahunonline.store') }}" enctype="multipart/form-data">
                     @csrf
                     {{-- <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                     <input type="hidden" name="biodata_id" value="{{ auth()->user()->biodata_id }}"> --}}
@@ -13,7 +13,7 @@
                         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                         <input type="hidden" name="biodata_id" value="{{ auth()->user()->biodata_id }}">
 
-                        {{--  <div class="form-group col-lg-12">
+                        <div class="form-group col-lg-12">
                             <label for="tempat">UPPD <small class="text-danger">*</small></label>
                             <select name="tempat" id="tempat" class="form-control" required>
                                 <option value="">UPPD</option>
@@ -32,7 +32,7 @@
                                 <option value="AMUNTAI">AMUNTAI</option>
                                 <option value="KANDANGAN">KANDANGAN</option>
                             </select>
-                        </div>  --}}
+                        </div>
 
                         <div class="form-group col-lg-6">
                             <label for="nopol">No Polisi</label>
@@ -99,11 +99,11 @@
                 <h5 class="modal-title mb-2">Edit Data</h5>
             </div>
             <div class="modal-body">
-                <form method="post" id="form-edit" action="{{ route('pendaftaran1tahun.update') }}" enctype="multipart/form-data">
+                <form method="post" id="form-edit" action="{{ route('pendaftaran1tahunonline.update') }}" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id" id="idEdit">
                     <div class="row">
-                        {{--  <div class="form-group col-lg-12">
+                        <div class="form-group col-lg-12">
                             <label for="tempat">UPPD <small class="text-danger">*</small></label>
                             <select name="tempat" id="tempatEdit" class="form-control" required>
                                 <option value="BANJARMASIN 1">BANJARMASIN 1</option>
@@ -121,7 +121,7 @@
                                 <option value="AMUNTAI">AMUNTAI</option>
                                 <option value="KANDANGAN">KANDANGAN</option>
                             </select>
-                        </div>  --}}
+                        </div>
                         <div class="form-group col-lg-6">
                             <label for="nopol">No Polisi</label>
                             <input type="text" class="form-control" id="nopolEdit" name="nopol" placeholder="No Polisi " data-rule="minlen:4" required />

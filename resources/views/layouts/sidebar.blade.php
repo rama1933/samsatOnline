@@ -15,6 +15,10 @@
                         aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">1 Tahun
                         </span></a>
                 </li>
+                <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('pendaftaran1tahunonlineadmin.index') }}"
+                        aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">1 Tahun Online
+                        </span></a>
+                </li>
                 <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('pendaftaran5tahunadmin.index') }}"
                         aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">5 Tahun
                         </span></a>
@@ -66,6 +70,10 @@
 
                 <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('pendaftaran1tahun.index') }}" aria-expanded="false"><i
                             data-feather="file-text" class="feather-icon"></i><span class="hide-menu">1 Tahun
+                        </span></a>
+                </li>
+                <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('pendaftaran1tahunonline.index') }}" aria-expanded="false"><i
+                            data-feather="file-text" class="feather-icon"></i><span class="hide-menu">1 Tahun Online
                         </span></a>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('pendaftaran5tahun.index') }}" aria-expanded="false"><i

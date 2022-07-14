@@ -8,13 +8,14 @@ use App\Models\Biodata;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use App\Services\UserService;
+use App\Services\MasterService;
+use App\Models\PendaftaranBalik;
+use App\Models\PendaftaranKuasa;
 use App\Models\Pendaftaran1tahun;
 use App\Models\Pendaftaran5tahun;
-use App\Models\PendaftaranBalik;
 use App\Models\PendaftaranDuplikat;
-use App\Models\PendaftaranKuasa;
-use App\Services\MasterService;
 use App\Services\PendaftaranService;
+use App\Models\Pendaftaran1tahunonline;
 use App\Services\PendaftaranBalikService;
 use App\Services\PendaftaranKuasaService;
 use App\Services\Pendaftaran5tahunService;
@@ -58,6 +59,22 @@ class PdfController extends Controller
         $id = $request->id;
         $data['data'] = Pendaftaran1tahun::with('biodata')->where('id', $id)->get();
         $pdf = PDF::loadview('pdf.user.pendaftaran.pendaftaran1tahun.detail', $data)->setPaper('a4', 'landscape');
+        return $pdf->stream('1tahun.pdf');
+    }
+
+    public function indexpendaftaran1tahunonlinepdf(Request $request)
+    {
+        $user_id = auth()->user()->id;
+        $data['data'] = $this->pendaftaran1tahunService->getDataPendaftaran1tahunonline(user_id: $user_id);
+        $pdf = PDF::loadview('pdf.user.pendaftaran.pendaftaran1tahunonline.index', $data)->setPaper('a4', 'landscape');
+        return $pdf->stream('1tahun.pdf');
+    }
+
+    public function indexpendaftaran1tahunonlinedetailpdf(Request $request, $id)
+    {
+        $id = $request->id;
+        $data['data'] = Pendaftaran1tahunonline::with('biodata')->where('id', $id)->get();
+        $pdf = PDF::loadview('pdf.user.pendaftaran.pendaftaran1tahunonline.detail', $data)->setPaper('a4', 'landscape');
         return $pdf->stream('1tahun.pdf');
     }
 
@@ -172,6 +189,31 @@ class PdfController extends Controller
         $id = $request->id;
         $data['data'] = Pendaftaran1tahun::with('biodata')->where('id', $id)->get();
         $pdf = PDF::loadview('pdf.admin.pendaftaran.pendaftaran1tahun.detail', $data)->setPaper('a4', 'landscape');
+        return $pdf->stream('1tahun.pdf');
+    }
+
+    public function indexpendaftaran1tahunonlineadminpdf(Request $request)
+    {
+        $user_id = auth()->user()->id;
+        if ($request->input('status') == "0") {
+            $data['data'] = Pendaftaran1tahunonline::with('biodata')->where('status', '0')->get();
+        } elseif ($request->input('status') == "1") {
+            $data['data'] = Pendaftaran1tahunonline::with('biodata')->where('status', '1')->get();
+        } elseif ($request->input('status') == "2") {
+            $data['data'] = Pendaftaran1tahunonline::with('biodata')->where('status', '2')->get();
+        } else {
+            $data['data'] = Pendaftaran1tahunonline::with('biodata')->get();
+        }
+
+        $pdf = PDF::loadview('pdf.admin.pendaftaran.pendaftaran1tahunonline.index', $data)->setPaper('a4', 'landscape');
+        return $pdf->stream('1tahun.pdf');
+    }
+
+    public function indexpendaftaran1tahunonlinedetailadminpdf(Request $request, $id)
+    {
+        $id = $request->id;
+        $data['data'] = Pendaftaran1tahunonline::with('biodata')->where('id', $id)->get();
+        $pdf = PDF::loadview('pdf.admin.pendaftaran.pendaftaran1tahunonline.detail', $data)->setPaper('a4', 'landscape');
         return $pdf->stream('1tahun.pdf');
     }
 

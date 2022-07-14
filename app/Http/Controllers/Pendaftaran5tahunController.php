@@ -125,7 +125,7 @@ class Pendaftaran5tahunController extends Controller
             ->addColumn('buttonadmin', function ($data) use ($request) {
                 return '
                  <a href="/admin/pdf/pendaftaran5tahunadmin/detail/' . $data->id . '"  class="btn btn-sm btn-flat btn-warning" target="_blank" title="Unduh Dokumen (PDF)"><i class="fa fa-print"></i></a>
-                 <button onclick="edit(' . $data->id . ')" data-toggle="modal" data-target="#modal-edit" class="btn btn-sm btn-flat btn-primary my-1"><i class="fa fa-edit"></i></button>
+
                  <button onclick="deletebtn(' . $data->id . ')" class="btn btn-sm btn-flat btn-danger my-1"><i class="fa fa-trash"></i></button>
                                    ';
             })

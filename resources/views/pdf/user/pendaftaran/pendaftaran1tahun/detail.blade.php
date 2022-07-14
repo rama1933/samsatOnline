@@ -103,12 +103,6 @@
             </tr>
 
             <tr>
-                <th style="text-align: left">UPPD</th>
-                <td style="text-align: center">:</td>
-                <td style="padding-left: 10px">{{ $data->tempat }}</td>
-            </tr>
-
-            <tr>
                 <th style="text-align: left">Nopol</th>
                 <td style="text-align: center">:</td>
                 <td style="padding-left: 10px">{{ $data->nopol }}</td>

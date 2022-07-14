@@ -82,7 +82,6 @@
                 <th>No mesin</th>
                 <th>Merk</th>
                 <th>Tahun Pembuatan</th>
-                <th>UUPD</th>
                 <th>Tanggal Pengajuan</th>
                 <th>Status</th>
             </tr>
@@ -96,7 +95,6 @@
             <td>{{ $data->no_mesin }}</td>
             <td>{{ $data->merk }}</td>
             <td>{{ $data->tahun }}</td>
-            <td>{{ $data->tempat }}</td>
             <td>{{ date('d-m-Y',strtotime($data->tanggal)) }}</td>
             <td>
                 @if ($data->status == 0)

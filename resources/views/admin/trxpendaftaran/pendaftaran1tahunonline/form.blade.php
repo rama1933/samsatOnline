@@ -13,27 +13,6 @@
                         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                         <input type="hidden" name="biodata_id" value="{{ auth()->user()->biodata_id }}">
 
-                        {{--  <div class="form-group col-lg-12">
-                            <label for="tempat">UPPD <small class="text-danger">*</small></label>
-                            <select name="tempat" id="tempat" class="form-control" required>
-                                <option value="">UPPD</option>
-                                <option value="BANJARMASIN 1">BANJARMASIN 1</option>
-                                <option value="BANJARMASIN 2">BANJARMASIN 2</option>
-                                <option value="BANJARBARU">BANJARBARU</option>
-                                <option value="PELAIHARI">PELAIHARI</option>
-                                <option value="KOTABARU">KOTABARU</option>
-                                <option value="MARTAPURA">MARTAPURA</option>
-                                <option value="MARABAHAN">MARABAHAN</option>
-                                <option value="BATULICIN">BATULICIN</option>
-                                <option value="RANTAU">RANTAU</option>
-                                <option value="BARABAI">BARABAI</option>
-                                <option value="PARINGIN">PARINGIN</option>
-                                <option value="TANJUNG">TANJUNG</option>
-                                <option value="AMUNTAI">AMUNTAI</option>
-                                <option value="KANDANGAN">KANDANGAN</option>
-                            </select>
-                        </div>  --}}
-
                         <div class="form-group col-lg-6">
                             <label for="nopol">No Polisi</label>
                             <input type="text" class="form-control" name="nopol" placeholder="No Polisi " data-rule="minlen:4" required />
@@ -103,25 +82,6 @@
                     @csrf
                     <input type="hidden" name="id" id="idEdit">
                     <div class="row">
-                        {{--  <div class="form-group col-lg-12">
-                            <label for="tempat">UPPD <small class="text-danger">*</small></label>
-                            <select name="tempat" id="tempatEdit" class="form-control" required>
-                                <option value="BANJARMASIN 1">BANJARMASIN 1</option>
-                                <option value="BANJARMASIN 2">BANJARMASIN 2</option>
-                                <option value="BANJARBARU">BANJARBARU</option>
-                                <option value="PELAIHARI">PELAIHARI</option>
-                                <option value="KOTABARU">KOTABARU</option>
-                                <option value="MARTAPURA">MARTAPURA</option>
-                                <option value="MARABAHAN">MARABAHAN</option>
-                                <option value="BATULICIN">BATULICIN</option>
-                                <option value="RANTAU">RANTAU</option>
-                                <option value="BARABAI">BARABAI</option>
-                                <option value="PARINGIN">PARINGIN</option>
-                                <option value="TANJUNG">TANJUNG</option>
-                                <option value="AMUNTAI">AMUNTAI</option>
-                                <option value="KANDANGAN">KANDANGAN</option>
-                            </select>
-                        </div>  --}}
                         <div class="form-group col-lg-6">
                             <label for="nopol">No Polisi</label>
                             <input type="text" class="form-control" id="nopolEdit" name="nopol" placeholder="No Polisi " data-rule="minlen:4" required />

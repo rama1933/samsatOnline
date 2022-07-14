@@ -35,6 +35,23 @@
                             </form>
                         </tr>
                         <tr>
+                            <form action="{{route('pdf.1tahunonlineadmin')}}" target="_blank">
+                                <td>
+                                    <h5>Cetak Laporan Pendaftaran 1 tahun Online</h5>
+                                </td>
+                                <td>
+                                    <select name="status" id="status" class="form-control select2" style="width:100%" required>
+                                        <option value="0">Belum Diverifikasi</option>
+                                        <option value="1">Diproses</option>
+                                        <option value="2">Selesai</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="submit" class="btn btn-success"><i class="fa fa-print"></i></button>
+                                </td>
+                            </form>
+                        </tr>
+                        <tr>
                             <form action="{{route('pdf.5tahunadmin')}}" target="_blank">
                                 <td>
                                     <h5>Cetak Laporan Pendaftaran 5 tahun</h5>

@@ -17,7 +17,7 @@ function datatable() {
         language: {
             processing: "<img src='" + window.origin + "/img/805.gif'> Memuat Data"
         },
-        ajax: window.location.origin + '/admin/pendaftaran/pendaftaran1tahun/data',
+        ajax: window.location.origin + '/admin/pendaftaran/pendaftaran1tahunonline/data',
         columns: [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'
@@ -42,10 +42,10 @@ function datatable() {
                 data: 'tahun',
                 name: 'tahun'
             },
-            // {
-            //     data: 'tempat',
-            //     name: 'tempat'
-            // },
+            {
+                data: 'tempat',
+                name: 'tempat'
+            },
             {
                 data: 'no_rangka',
                 name: 'no_rangka'
@@ -121,7 +121,7 @@ $('#form-create').on('submit', function(e) {
 
 function edit(id) {
     $.ajax({
-        url: window.location.origin + '/admin/pendaftaran/pendaftaran1tahun/show',
+        url: window.location.origin + '/admin/pendaftaran/pendaftaran1tahunonline/show',
         method: "GET",
         data: { id: id, _token: '{{ csrf_token() }}' },
         success: function(response) {
@@ -180,7 +180,7 @@ function deletebtn(id) {
             if (willDelete) {
 
                 $.ajax({
-                    url: window.location.origin + '/admin/pendaftaran/pendaftaran1tahun/delete',
+                    url: window.location.origin + '/admin/pendaftaran/pendaftaran1tahunonline/delete',
                     method: "POST",
                     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                     data: { id: id },

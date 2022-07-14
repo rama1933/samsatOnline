@@ -79,7 +79,7 @@
             <tr>
                 <th style="text-align: left">Jenis Pendaftaran</th>
                 <td style="text-align: center">:</td>
-                <td style="padding-left: 10px">Pendaftaran 1 tahun</td>
+                <td style="padding-left: 10px">Pendaftaran 1 tahun Online</td>
             </tr>
             <tr>
                 <th style="text-align: left">Nik</th>
@@ -120,11 +120,11 @@
                 <td style="padding-left: 10px">{{ $data->tahun }}</td>
             </tr>
 
-            {{--  <tr>
+            <tr>
                 <th style="text-align: left">UPPD</th>
                 <td style="text-align: center">:</td>
                 <td style="padding-left: 10px">{{ $data->tempat }}</td>
-            </tr>  --}}
+            </tr>
 
             <tr>
                 <th style="text-align: left">No Rangka</th>

@@ -54,7 +54,7 @@
     <footer>
         <hr>
     </footer>
-   <div class="row" style="text-align: center">
+    <div class="row" style="text-align: center">
         <div class="column left">
             <img src="{{  public_path() }}/logo/prov.png" style="width:50px">
         </div>
@@ -103,6 +103,12 @@
             </tr>
 
             <tr>
+                <th style="text-align: left">UPPD</th>
+                <td style="text-align: center">:</td>
+                <td style="padding-left: 10px">{{ $data->tempat }}</td>
+            </tr>
+
+            <tr>
                 <th style="text-align: left">Nopol</th>
                 <td style="text-align: center">:</td>
                 <td style="padding-left: 10px">{{ $data->nopol }}</td>
@@ -120,12 +126,6 @@
                 <td style="padding-left: 10px">{{ $data->tahun }}</td>
             </tr>
 
-            {{--  <tr>
-                <th style="text-align: left">UPPD</th>
-                <td style="text-align: center">:</td>
-                <td style="padding-left: 10px">{{ $data->tempat }}</td>
-            </tr>  --}}
-
             <tr>
                 <th style="text-align: left">No Rangka</th>
                 <td style="text-align: center">:</td>
@@ -142,22 +142,6 @@
                 <th style="text-align: left">Tanggal Daftar</th>
                 <td style="text-align: center">:</td>
                 <td style="padding-left: 10px">{{ $data->tanggal }}</td>
-            </tr>
-
-            <tr>
-                <th style="text-align: left">Status</th>
-                <td style="text-align: center">:</td>
-                <td style="padding-left: 10px">
-                @if ($data->status == 0)
-                Belum DI Verifikasi
-                @endif
-                @if ($data->status == 1)
-                Di Proses
-                @endif
-                @if ($data->status == 2)
-                Selesai
-                @endif
-                </td>
             </tr>
 
             @endforeach

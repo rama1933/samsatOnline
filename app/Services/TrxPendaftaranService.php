@@ -11,6 +11,7 @@ use App\Models\PendaftaranDuplikat;
 use App\Models\PendaftaranKuasa;
 use App\Mail\SendEmail;
 use App\Models\Biodata;
+use App\Models\Pendaftaran1tahunonline;
 use Illuminate\Support\Facades\Mail;
 
 class TrxPendaftaranService
@@ -24,6 +25,9 @@ class TrxPendaftaranService
     {
         if ($type == '1tahun') {
             $find = Pendaftaran1tahun::find($id);
+        }
+        if ($type == '1tahunonline') {
+            $find = Pendaftaran1tahunonline::find($id);
         }
         if ($type == '5tahun') {
             $find = Pendaftaran5tahun::find($id);

@@ -37,9 +37,9 @@
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
                         Tahun
                     </th>
-                    {{--  <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
+                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
                         UPPD
-                    </th>  --}}
+                    </th>
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
                         No Rangka
                     </th>
@@ -73,7 +73,7 @@
     </div>
 </div>
 
-@include('user.pendaftaran.pendaftaran1tahun.form')
+@include('user.pendaftaran.pendaftaran1tahunonline.form')
 @endsection
 
 @section('custom_js')
@@ -90,5 +90,5 @@
         return true;
         }
 </script>
-<script src="{{asset('js/pendaftaran/user/pendaftaran1tahun/main.js')}}"></script>
+<script src="{{asset('js/pendaftaran/user/pendaftaran1tahunonline/main.js')}}"></script>
 @endsection
