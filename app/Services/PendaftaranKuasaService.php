@@ -32,7 +32,7 @@ class PendaftaranKuasaService
     {
 
         $repo = new UploadRepository();
-        $upload = $repo->uploadpendaftaranKuasa($data['ktp'], $data['pajak'], $data['stnk'], $data['bpkb'], $data['surat_kuasa']);
+        $upload = $repo->uploadpendaftaranKuasa($data['ktp'], $data['pajak'], $data['stnk'], $data['bpkb'], $data['surat_kuasa'], $data['no_mesin_upload'], $data['no_rangka_upload'], $data['surat_keterangan']);
 
         $pendaftaran = PendaftaranKuasa::create([
             "user_id" => $data['user_id'],
@@ -48,6 +48,9 @@ class PendaftaranKuasaService
             "stnk" => $upload['stnk'],
             "bpkb" => $upload['bpkb'],
             "surat_kuasa" => $upload['surat_kuasa'],
+            "no_mesin_upload" => $upload['no_mesin_upload'],
+            "no_rangka_upload" => $upload['no_rangka_upload'],
+            "surat_keterangan" => $upload['surat_keterangan'],
             "tanggal" =>  now(),
             "created_at" => now(),
             "updated_at" => now(),
@@ -60,7 +63,7 @@ class PendaftaranKuasaService
         $find = PendaftaranKuasa::find($id);
         $ser = new PendaftaranKuasaService();
         $val = $ser->getDataPendaftaranKuasa($id);
-        if (!isset($data['ktp']) and !isset($data['stnk']) and !isset($data['pajak']) and !isset($data['bpkb']) and !isset($data['surat_kuasa'])) {
+        if (!isset($data['ktp']) and !isset($data['stnk']) and !isset($data['pajak']) and !isset($data['bpkb']) and !isset($data['surat_kuasa']) and !isset($data['surat_keterangan']) and !isset($data['no_rangka_upload']) and !isset($data['no_mesin_upload'])) {
             $toward =
                 [
                     "jenis" => $data['jenis'],
@@ -108,7 +111,26 @@ class PendaftaranKuasaService
                 $surat_kuasa_data = $data['surat_kuasa'];
             }
 
-            $upload = $repo->uploadpendaftaranKuasa($ktp_data, $pajak_data, $stnk_data, $bpkb_data, $surat_kuasa_data);
+            if (!isset($data['surat_keterangan'])) {
+                $surat_keterangan_data = null;
+            } else {
+                $surat_keterangan_data = $data['surat_keterangan'];
+            }
+
+            if (!isset($data['no_rangka_upload'])) {
+                $no_rangka_upload_data = null;
+            } else {
+                $no_rangka_upload_data = $data['no_rangka_upload'];
+            }
+
+            if (!isset($data['no_mesin_upload'])) {
+                $no_mesin_upload_data = null;
+            } else {
+                $no_mesin_upload_data = $data['no_mesin_upload'];
+            }
+
+
+            $upload = $repo->uploadpendaftaranKuasa($ktp_data, $pajak_data, $stnk_data, $bpkb_data, $surat_kuasa_data, $surat_keterangan_data, $no_rangka_upload_data, $no_mesin_upload_data);
             if ($upload['ktp'] == 'kosong') {
                 $ktp = $val->ktp;
             } else {
@@ -138,6 +160,25 @@ class PendaftaranKuasaService
             } else {
                 $surat_kuasa = $upload['surat_kuasa'];
             }
+
+            if ($upload['surat_keterangan'] == 'kosong') {
+                $surat_keterangan = $val->surat_keterangan;
+            } else {
+                $surat_keterangan = $upload['surat_keterangan'];
+            }
+
+            if ($upload['no_rangka_upload'] == 'kosong') {
+                $no_rangka_upload = $val->no_rangka_upload;
+            } else {
+                $no_rangka_upload = $upload['no_rangka_upload'];
+            }
+
+            if ($upload['no_mesin_upload'] == 'kosong') {
+                $no_mesin_upload = $val->no_mesin_upload;
+            } else {
+                $no_mesin_upload = $upload['no_mesin_upload'];
+            }
+
             $toward =
                 [
                     "jenis" => $data['jenis'],
@@ -151,6 +192,9 @@ class PendaftaranKuasaService
                     "stnk" => $stnk,
                     "bpkb" => $bpkb,
                     "surat_kuasa" => $surat_kuasa,
+                    "surat_keterangan" => $surat_keterangan,
+                    "no_rangka_upload" => $no_rangka_upload,
+                    "no_mesin_upload" => $no_mesin_upload,
                     "tanggal" =>  now(),
                     "created_at" => now(),
                     "updated_at" => now(),

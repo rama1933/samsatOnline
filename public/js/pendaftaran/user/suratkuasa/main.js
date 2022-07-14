@@ -17,86 +17,30 @@ function datatable() {
         language: {
             processing: "<img src='" + window.origin + "/img/805.gif'> Memuat Data"
         },
-        ajax: window.location.origin + '/admin/pendaftaran/pendaftarankuasa/data',
+        ajax: window.location.origin + '/pendaftaran/suratkuasa/data',
         columns: [{
                 data: 'DT_RowIndex',
                 name: 'DT_RowIndex'
             },
             {
-                data: 'nik',
-                name: 'nik'
+                data: 'nama1',
+                name: 'nama1'
             },
             {
-                data: 'nama',
-                name: 'nama'
+                data: 'nama2',
+                name: 'nama2'
+            },
+            {
+                data: 'nama3',
+                name: 'nama3'
             },
             {
                 data: 'nopol',
                 name: 'nopol'
             },
             {
-                data: 'merk',
-                name: 'merk'
-            },
-            {
-                data: 'tahun',
-                name: 'tahun'
-            },
-            {
-                data: 'jenis',
-                name: 'jenis'
-            },
-            {
-                data: 'no_rangka',
-                name: 'no_rangka'
-            },
-            {
-                data: 'no_mesin',
-                name: 'no_mesin'
-            },
-            {
-                data: 'tanggal',
-                name: 'tanggal'
-            },
-            {
-                data: 'download_ktp',
-                name: 'download_ktp'
-            },
-            {
-                data: 'download_pajak',
-                name: 'download_pajak'
-            },
-            {
-                data: 'download_stnk',
-                name: 'download_stnk'
-            },
-            {
-                data: 'download_bpkb',
-                name: 'download_bpkb'
-            },
-            {
-                data: 'download_surat_kuasa',
-                name: 'download_surat_kuasa'
-            },
-            {
-                data: 'download_no_mesin_upload',
-                name: 'download_no_mesin_upload'
-            },
-            {
-                data: 'download_no_rangka_upload',
-                name: 'download_no_rangka_upload'
-            },
-            {
-                data: 'download_surat_keterangan',
-                name: 'download_surat_keterangan'
-            },
-            {
-                data: 'status',
-                name: 'status'
-            },
-            {
-                data: 'buttonadmin',
-                name: 'buttonadmin'
+                data: 'button',
+                name: 'button'
             }
         ]
     });
@@ -137,24 +81,47 @@ $('#form-create').on('submit', function(e) {
 
 function edit(id) {
     $.ajax({
-        url: window.location.origin + '/admin/pendaftaran/pendaftarankuasa/show',
+        url: window.location.origin + '/pendaftaran/suratkuasa/show',
         method: "GET",
         data: { id: id, _token: '{{ csrf_token() }}' },
         success: function(response) {
             // console.log(response)
             $('#idEdit').empty();
-            $('#tahunEdit').empty();
+            $('#nama1Edit').empty();
+            $('#nama2Edit').empty();
+            $('#nama3Edit').empty();
+            $('#no1Edit').empty();
+            $('#no2Edit').empty();
+            $('#tempat_lahir1Edit').empty();
+            $('#tempat_lahir2Edit').empty();
+            $('#tanggal_lahir1Edit').empty();
+            $('#tanggal_lahir2Edit').empty();
+            $('#no_hp1Edit').empty();
+            $('#no_hp2Edit').empty();
+            $('#alamat1Edit').empty();
+            $('#alamat2Edit').empty();
             $('#nopolEdit').empty();
             $('#merkEdit').empty();
-            $('#tahunEdit').empty();
-            $('#norangkaEdit').empty();
-            $('#nomesinEdit').empty();
+            $('#no_rangkaEdit').empty();
+            $('#no_mesinEdit').empty();
             $('#idEdit').val(id);
-            $('#tahunEdit').val(response['tahun']);
+            $('#nama1Edit').val(response['nama1']);
+            $('#nama2Edit').val(response['nama2']);
+            $('#nama3Edit').val(response['nama3']);
+            $('#no1Edit').val(response['no1']);
+            $('#no2Edit').val(response['no2']);
+            $('#tempat_lahir1Edit').val(response['tempat_lahir1']);
+            $('#tempat_lahir2Edit').val(response['tempat_lahir2']);
+            $('#tanggal_lahir1Edit').val(response['tanggal_lahir1']);
+            $('#tanggal_lahir2Edit').val(response['tanggal_lahir2']);
+            $('#no_hp1Edit').val(response['no_hp1']);
+            $('#no_hp2Edit').val(response['no_hp2']);
+            $('#alamat1Edit').val(response['alamat1']);
+            $('#alamat2Edit').val(response['alamat2']);
             $('#nopolEdit').val(response['nopol']);
             $('#merkEdit').val(response['merk']);
-            $('#norangkaEdit').val(response['no_rangka']);
-            $('#nomesinEdit').val(response['no_mesin']);
+            $('#no_rangkaEdit').val(response['no_rangka']);
+            $('#no_mesinEdit').val(response['no_mesin']);
         }
     })
 }
@@ -196,7 +163,7 @@ function deletebtn(id) {
             if (willDelete) {
 
                 $.ajax({
-                    url: window.location.origin + '/admin/pendaftaran/pendaftarankuasa/delete',
+                    url: window.location.origin + '/pendaftaran/suratkuasa/delete',
                     method: "POST",
                     headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
                     data: { id: id },

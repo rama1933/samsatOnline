@@ -66,6 +66,14 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                <h5>Cetak Laporan Pembuatan Surat Kuasa)</h5>
+                            </td>
+                            <td>
+                                <a href="{{route('pdf.suratkuasa')}}" target="_blank" class="btn btn-success"><i class="fa fa-print"></i></a>
+                            </td>
+                        </tr>
+                        <tr>
                         <td>
                             <h5>Cetak Biodata</h5>
                         </td>

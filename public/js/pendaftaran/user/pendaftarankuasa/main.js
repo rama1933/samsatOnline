@@ -71,6 +71,18 @@ function datatable() {
                 name: 'download_surat_kuasa'
             },
             {
+                data: 'download_no_mesin_upload',
+                name: 'download_no_mesin_upload'
+            },
+            {
+                data: 'download_no_rangka_upload',
+                name: 'download_no_rangka_upload'
+            },
+            {
+                data: 'download_surat_keterangan',
+                name: 'download_surat_keterangan'
+            },
+            {
                 data: 'button',
                 name: 'button'
             }

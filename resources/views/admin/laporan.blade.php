@@ -153,6 +153,14 @@
                         </tr>
                         <tr>
                         <td>  --}}
+                            <tr>
+                                <td colspan="2">
+                                    <h5>Cetak Surat Kuasa</h5>
+                                </td>
+                                <td><a href="{{ route('pdf.suratkuasaadmin') }}" target="_blank" class="btn btn-success"><i
+                                            class="fa fa-print"></i></a>
+                                </td>
+                            </tr>
                         <tr>
                         <td colspan="2">
                             <h5>Cetak Biodata</h5>

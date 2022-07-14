@@ -50,6 +50,21 @@
                         </div>
 
                         <div class="form-group col-lg-12">
+                            <label for="no_rangka_upload">Upload No rangka (Apabila pajak 5 tahun / duplikat)</label>
+                            <input type="file" class="form-control" name="no_rangka_upload"  />
+                        </div>
+
+                         <div class="form-group col-lg-12">
+                            <label for="no_mesin_upload">Upload No mesin (Apabila pajak 5 tahun / duplikat)</label>
+                            <input type="file" class="form-control" name="no_mesin_upload"  />
+                        </div>
+
+                        <div class="form-group col-lg-12">
+                            <label for="surat_keterangan">Upload Surat Keterangan Hilang (Apabila pajak 5 tahun / duplikat)</label>
+                            <input type="file" class="form-control" name="surat_keterangan"  />
+                        </div>
+
+                        <div class="form-group col-lg-12">
                             <label for="ktp">Upload KTP sesuai Notice Pajak</label>
                             <input type="file" class="form-control" name="ktp" required />
                         </div>
@@ -129,6 +144,21 @@
                             <label for="tahun">Tahun Pembuatan</label>
                             <input type="text" class="form-control" id="tahunEdit" name="tahun" placeholder="Tahun Pembuatan " data-rule="minlen:4"
                                 onkeypress="return hanyaAngka(event)" maxlength="4" required />
+                        </div>
+
+                        <div class="form-group col-lg-12">
+                            <label for="no_rangka_upload">Upload No rangka (Apabila pajak 5 tahun / duplikat)</label>
+                            <input type="file" class="form-control" name="no_rangka_upload" />
+                        </div>
+
+                        <div class="form-group col-lg-12">
+                            <label for="no_mesin_upload">Upload No mesin (Apabila pajak 5 tahun / duplikat)</label>
+                            <input type="file" class="form-control" name="no_mesin_upload" />
+                        </div>
+
+                        <div class="form-group col-lg-12">
+                            <label for="surat_keterangan">Upload Surat Keterangan Hilang (Apabila pajak 5 tahun / duplikat)</label>
+                            <input type="file" class="form-control" name="surat_keterangan" />
                         </div>
 
                         <div class="form-group col-lg-12">

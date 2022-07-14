@@ -30,6 +30,9 @@ class TblMasterPendaftaran1TrahunKuasa extends Migration
             $table->string('stnk', 255)->nullable();
             $table->string('bpkb', 255)->nullable();
             $table->string('surat_kuasa', 255)->nullable();
+            $table->string('no_rangka_upload', 255)->nullable();
+            $table->string('no_mesin_upload', 255)->nullable();
+            $table->string('surat_keterangan', 255)->nullable();
             $table->enum('status', ['0', '1', '2'])->default('0');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('biodata_id')->references('id')->on('tbl_biodata')->onDelete('cascade');

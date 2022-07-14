@@ -71,6 +71,15 @@
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
                         Surat Kuasa
                     </th>
+                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
+                        No Mesin Uplaod
+                    </th>
+                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
+                        No Mesin Rangka
+                    </th>
+                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
+                        Surat Keterangan Hilang
+                    </th>
                     <th style="padding-left:80px;padding-right:80px;border-spacing: 0px;white-space: nowrap;">
                         Status
                     </th>

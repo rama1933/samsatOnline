@@ -109,6 +109,15 @@ Route::middleware('role:admin')->group(function () {
                 Route::post('/update', [App\Http\Controllers\PendaftaranDuplikatController::class, 'updatependaftaranduplikat'])->name('pendaftaranduplikatadmin.update');
                 Route::post('/delete', [App\Http\Controllers\PendaftaranDuplikatController::class, 'deletependaftaranduplikat'])->name('pendaftaranduplikatadmin.delete');
             });
+
+            Route::prefix('/suratkuasaadmin')->group(function () {
+                Route::get('/', [App\Http\Controllers\SuratKuasaController::class, 'indexsuratkuasaadmin'])->name('suratkuasaadmin.index');
+                Route::get('/data', [App\Http\Controllers\SuratKuasaController::class, 'data'])->name('suratkuasa.data');
+                Route::post('/store', [App\Http\Controllers\SuratKuasaController::class, 'storesuratkuasa'])->name('suratkuasa.store');
+                Route::get('/show', [App\Http\Controllers\SuratKuasaController::class, 'showsuratkuasa'])->name('suratkuasa.show');
+                Route::post('/update', [App\Http\Controllers\SuratKuasaController::class, 'updatesuratkuasa'])->name('suratkuasa.update');
+                Route::post('/delete', [App\Http\Controllers\SuratKuasaController::class, 'deletesuratkuasa'])->name('suratkuasa.delete');
+            });
         });
 
         Route::prefix('/pdf')->group(function () {
@@ -140,6 +149,11 @@ Route::middleware('role:admin')->group(function () {
             Route::prefix('/pendaftaranduplikatadmin')->group(function () {
                 Route::any('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaranduplikatadminpdf'])->name('pdf.duplikatadmin');
                 Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftaranduplikatadmindetailpdf'])->name('pdf.duplikatadmindetail');
+            });
+
+            Route::prefix('/suratkuasaadmin')->group(function () {
+                Route::get('/', [App\Http\Controllers\PdfController::class, 'indexsuratkuasaadminpdf'])->name('pdf.suratkuasaadmin');
+                Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexsuratkuasaadmindetailpdf'])->name('pdf.suratkuasaadmindetail');
             });
 
             Route::prefix('/biodataadmin')->group(function () {
@@ -188,6 +202,11 @@ Route::middleware('role:user')->group(function () {
             Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftarankuasadetailpdf'])->name('pdf.kuasadetail');
 
             Route::post('/surat', [App\Http\Controllers\PdfController::class, 'indexpendaftaransuratkuasapdf'])->name('pdf.surat');
+        });
+
+        Route::prefix('/suratkuasa')->group(function () {
+            Route::get('/', [App\Http\Controllers\PdfController::class, 'indexsuratkuasapdf'])->name('pdf.suratkuasa');
+            Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexsuratkuasadetailpdf'])->name('pdf.suratkuasadetail');
         });
 
         Route::prefix('/pendaftaranbalik')->group(function () {
@@ -240,6 +259,15 @@ Route::middleware('role:user')->group(function () {
             Route::get('/show', [App\Http\Controllers\PendaftaranKuasaController::class, 'showpendaftarankuasa'])->name('pendaftarankuasa.show');
             Route::post('/update', [App\Http\Controllers\PendaftaranKuasaController::class, 'updatependaftarankuasa'])->name('pendaftarankuasa.update');
             Route::post('/delete', [App\Http\Controllers\PendaftaranKuasaController::class, 'deletependaftarankuasa'])->name('pendaftarankuasa.delete');
+        });
+
+        Route::prefix('/suratkuasa')->group(function () {
+            Route::get('/', [App\Http\Controllers\SuratKuasaController::class, 'indexsuratkuasa'])->name('suratkuasa.index');
+            Route::get('/data', [App\Http\Controllers\SuratKuasaController::class, 'data'])->name('suratkuasa.data');
+            Route::post('/store', [App\Http\Controllers\SuratKuasaController::class, 'storesuratkuasa'])->name('suratkuasa.store');
+            Route::get('/show', [App\Http\Controllers\SuratKuasaController::class, 'showsuratkuasa'])->name('suratkuasa.show');
+            Route::post('/update', [App\Http\Controllers\SuratKuasaController::class, 'updatesuratkuasa'])->name('suratkuasa.update');
+            Route::post('/delete', [App\Http\Controllers\SuratKuasaController::class, 'deletesuratkuasa'])->name('suratkuasa.delete');
         });
 
         Route::prefix('/pendaftaranbalik')->group(function () {

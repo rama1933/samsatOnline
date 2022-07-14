@@ -37,6 +37,10 @@
                             Nama
                         </span></a>
                 </li>
+                <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('suratkuasaadmin.index') }}" aria-expanded="false"><i
+                            data-feather="file-text" class="feather-icon"></i><span class="hide-menu"> Data Surat Kuasa
+                        </span></a>
+                </li>
 
                 <li class="list-divider"></li>
                 <li class="nav-small-cap"><span class="hide-menu">Master</span></li>
@@ -90,6 +94,11 @@
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('pendaftaranbalik.index') }}" aria-expanded="false"><i
                             data-feather="file-text" class="feather-icon"></i><span class="hide-menu"> Balik Nama
+                        </span></a>
+                </li>
+
+                <li class="sidebar-item"> <a class="sidebar-link" href="{{ route('suratkuasa.index') }}" aria-expanded="false"><i
+                            data-feather="file-text" class="feather-icon"></i><span class="hide-menu"> Buat Surat Kuasa
                         </span></a>
                 </li>
 

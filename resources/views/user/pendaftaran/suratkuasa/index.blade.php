@@ -9,8 +9,7 @@
     <div class="card-header" style="background-color: rgb(241, 241, 241)">
         <div class="row">
             <div class="col-6">
-                <h4 class="card-title"> TABEL PENDAFTARAN ULANG 1 TAHUN BUKAN
-                ATAS NAMA PEMILIK KENDARAAN</h4>
+                <h4 class="card-title"> TABEL PEMBUATAN SURAT KUASA</h4>
             </div>
 
             <div class="col-6">
@@ -25,7 +24,7 @@
     </div>
     <div class="card-body">
         <div class="ml-md-auto">
-        <a href="{{ route('pdf.kuasa') }}" target="_blank" title="Unduh Dokumen (PDF)"
+        <a href="{{ route('pdf.suratkuasa') }}" target="_blank" title="Unduh Dokumen (PDF)"
     class="btn btn-md btn-success mb-3"><i class="fa fa-print"></i> Cetak</a>
         </div>
         <div class="table-responsive">
@@ -35,49 +34,16 @@
                         No
                     </th>
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        No Polisi
+                        Pemberi Kuasa
                     </th>
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        Merk
+                        Penerima Kuasa
                     </th>
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        Tahun
+                        Atas Nama Kendaraan
                     </th>
                     <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        Jenis Pendaftaran
-                    </th>
-                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        No Rangka
-                    </th>
-                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        No Mesin
-                    </th>
-                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        Tanggal
-                    </th>
-                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        KTP
-                    </th>
-                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        Pajak
-                    </th>
-                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        STNK
-                    </th>
-                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        BPKB
-                    </th>
-                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        Surat Kuasa
-                    </th>
-                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        No Mesin Uplaod
-                    </th>
-                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                        No Mesin Rangka
-                    </th>
-                    <th style="padding-left:40px;padding-right:40px;border-spacing: 0px;white-space: nowrap;">
-                       Surat Keterangan Hilang
+                        Nopol
                     </th>
                     <th style="padding-left:80px;padding-right:80px;border-spacing: 0px;white-space: nowrap;">
                         Aksi
@@ -91,7 +57,7 @@
     </div>
 </div>
 
-@include('user.pendaftaran.pendaftarankuasa.form')
+@include('user.pendaftaran.suratkuasa.form')
 @endsection
 
 @section('custom_js')
@@ -108,5 +74,5 @@
         return true;
         }
 </script>
-<script src="{{asset('js/pendaftaran/user/pendaftarankuasa/main.js')}}"></script>
+<script src="{{asset('js/pendaftaran/user/suratkuasa/main.js')}}"></script>
 @endsection

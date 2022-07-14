@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use PDF;
 use App\Models\User;
 use App\Models\Biodata;
+use App\Models\SuratKuasa;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use App\Services\UserService;
@@ -20,7 +21,7 @@ use App\Services\PendaftaranBalikService;
 use App\Services\PendaftaranKuasaService;
 use App\Services\Pendaftaran5tahunService;
 use App\Services\PendaftaranDuplikatService;
-
+use App\Services\SuratKuasaService;
 
 class PdfController extends Controller
 {
@@ -34,6 +35,7 @@ class PdfController extends Controller
         $this->pendaftaranduplikatService = new PendaftaranDuplikatService();
         $this->masterService = new MasterService();
         $this->userService = new UserService();
+        $this->SuratKuasaService = new SuratKuasaService();
     }
 
     public function indexlaporanuser(Request $request)
@@ -107,6 +109,22 @@ class PdfController extends Controller
         $id = $request->id;
         $data['data'] = PendaftaranKuasa::with('biodata')->where('id', $id)->get();
         $pdf = PDF::loadview('pdf.user.pendaftaran.pendaftarankuasa.detail', $data)->setPaper('a4', 'landscape');
+        return $pdf->stream('kuasa.pdf');
+    }
+
+    public function indexsuratkuasapdf(Request $request)
+    {
+        $user_id = auth()->user()->id;
+        $data['data'] = $this->SuratKuasaService->getDataSuratKuasa(user_id: $user_id);
+        $pdf = PDF::loadview('pdf.user.pendaftaran.suratkuasa.index', $data)->setPaper('a4', 'landscape');
+        return $pdf->stream('kuasa.pdf');
+    }
+
+    public function indexsuratkuasadetailpdf(Request $request, $id)
+    {
+        $id = $request->id;
+        $data['data'] = suratkuasa::with('biodata')->where('id', $id)->get();
+        $pdf = PDF::loadview('pdf.user.pendaftaran.suratkuasa.detail', $data)->setPaper('a4', 'landscape');
         return $pdf->stream('kuasa.pdf');
     }
 
@@ -311,6 +329,21 @@ class PdfController extends Controller
         $data['data'] = PendaftaranDuplikat::with('biodata')->where('id', $id)->get();
         $pdf = PDF::loadview('pdf.admin.pendaftaran.pendaftaranduplikat.detail', $data)->setPaper('a4', 'landscape');
         return $pdf->stream('duplikat.pdf');
+    }
+
+    public function indexsuratkuasaadminpdf(Request $request)
+    {
+        $data['data'] = $this->SuratKuasaService->getDataSuratKuasa();
+        $pdf = PDF::loadview('pdf.admin.pendaftaran.suratkuasa.index', $data)->setPaper('a4', 'landscape');
+        return $pdf->stream('kuasa.pdf');
+    }
+
+    public function indexsuratkuasaadmindetailpdf(Request $request, $id)
+    {
+        $id = $request->id;
+        $data['data'] = suratkuasa::with('biodata')->where('id', $id)->get();
+        $pdf = PDF::loadview('pdf.admin.pendaftaran.suratkuasa.detail', $data)->setPaper('a4', 'landscape');
+        return $pdf->stream('kuasa.pdf');
     }
 
     public function indexbiodataadminpdf(Request $request)

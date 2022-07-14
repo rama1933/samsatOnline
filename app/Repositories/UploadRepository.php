@@ -111,7 +111,7 @@ class UploadRepository
         ];
     }
 
-    public function uploadpendaftaranKuasa($ktp, $pajak, $stnk, $bpkb, $surat_kuasa)
+    public function uploadpendaftaranKuasa($ktp, $pajak, $stnk, $bpkb, $surat_kuasa, $no_rangka_upload, $no_mesin_upload, $surat_keterangan)
     {
         $ktp_path = 'kosong';
         if ($ktp != null) {
@@ -153,12 +153,39 @@ class UploadRepository
             );
         }
 
+        $surat_keterangan_path = 'kosong';
+        if ($surat_keterangan != null) {
+            $surat_keterangan_path = $surat_keterangan->store(
+                'surat_keterangan',
+                'public'
+            );
+        }
+
+        $no_rangka_upload_path = 'kosong';
+        if ($no_rangka_upload != null) {
+            $no_rangka_upload_path = $no_rangka_upload->store(
+                'no_rangka_upload',
+                'public'
+            );
+        }
+
+        $no_mesin_upload_path = 'kosong';
+        if ($no_mesin_upload != null) {
+            $no_mesin_upload_path = $no_mesin_upload->store(
+                'no_mesin_upload',
+                'public'
+            );
+        }
+
         return $data = [
             'ktp' => $ktp_path,
             'pajak' => $pajak_path,
             'stnk' => $stnk_path,
             'bpkb' => $bpkb_path,
             'surat_kuasa' => $surat_kuasa_path,
+            'no_rangka_upload' => $no_rangka_upload_path,
+            'no_mesin_upload' => $no_mesin_upload_path,
+            'surat_keterangan' => $surat_keterangan_path,
         ];
     }
 

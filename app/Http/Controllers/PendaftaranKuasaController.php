@@ -80,6 +80,39 @@ class PendaftaranKuasaController extends Controller
                                                                 </i>
                                                             </a>';
             })
+            ->addColumn('download_surat_keterangan', function ($data) use ($request) {
+                if ($data->surat_keterangan == "kosong") {
+                    return '-';
+                } else {
+                    return '<a href="' . asset('/storage') . '/' . $data->surat_keterangan . '"
+                                                                target="_blank" class="btn btn-sm btn-primary edit">
+                                                                <i class="fa fa-download">
+                                                                </i>
+                                                            </a>';
+                }
+            })
+            ->addColumn('download_no_mesin_upload', function ($data) use ($request) {
+                if ($data->no_mesin_upload == "kosong") {
+                    return '-';
+                } else {
+                    return '<a href="' . asset('/storage') . '/' . $data->no_mesin_upload . '"
+                                                                target="_blank" class="btn btn-sm btn-primary edit">
+                                                                <i class="fa fa-download">
+                                                                </i>
+                                                            </a>';
+                }
+            })
+            ->addColumn('download_no_rangka_upload', function ($data) use ($request) {
+                if ($data->no_rangka_upload == "kosong") {
+                    return '-';
+                } else {
+                    return '<a href="' . asset('/storage') . '/' . $data->no_rangka_upload . '"
+                                                                target="_blank" class="btn btn-sm btn-primary edit">
+                                                                <i class="fa fa-download">
+                                                                </i>
+                                                            </a>';
+                }
+            })
             ->addColumn('status', function ($data) use ($request) {
                 if ($data->status == 0) {
                     return '<select name="status" onchange="status(' . $data->id . ')" class="form-control status' . $data->id . '" >
@@ -116,19 +149,20 @@ class PendaftaranKuasaController extends Controller
                 <button onclick="deletebtn(' . $data->id . ')" class="btn btn-sm btn-flat btn-danger my-1"><i class="fa fa-trash"></i></button>
                                    ';
             })
-            ->rawColumns(['button', 'buttonadmin', 'download_ktp', 'download_pajak', 'download_stnk', 'download_bpkb', 'download_surat_kuasa', 'nik', 'nama', 'status'])
+            ->rawColumns(['button', 'buttonadmin', 'download_ktp', 'download_pajak', 'download_stnk', 'download_bpkb', 'download_surat_kuasa', 'download_surat_keterangan', 'download_no_mesin_upload', 'download_no_rangka_upload', 'nik', 'nama', 'status'])
             ->make(true);
     }
 
 
     public function storependaftarankuasa(Request $request)
     {
+        // dd(request()->all());
         $validator = Validator::make(request()->all(), [
-            'nopol' => 'required',
-            'merk' => 'required',
-            'tahun' => 'required',
-            'no_rangka' => 'required',
-            'no_mesin' => 'required',
+            // 'nopol' => 'required',
+            // 'merk' => 'required',
+            // 'tahun' => 'required',
+            // 'no_rangka' => 'required',
+            // 'no_mesin' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -154,6 +188,7 @@ class PendaftaranKuasaController extends Controller
 
     public function showpendaftarankuasa(Request $request)
     {
+
         $id = $request->id;
         $data = $this->service->getDataPendaftarankuasa($id);
         return response()->json(
