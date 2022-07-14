@@ -72,6 +72,26 @@
                             <div>
                                 <span class="opacity-7 text-muted"><i data-feather="plus"></i></span>
                             </div>
+                            <a href="{{ route('pendaftaran1tahunonline.index') }}">
+                                <h4 class="text-muted font-weight-normal ml-4 mt-2 w-100 text-truncate">PENDAFTARAN ULANG 1 ONLINE
+                                    TAHUN</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card-group">
+                <div class="card border-right">
+                    <div class="card-body">
+                        <div class="d-flex d-lg-flex d-md-block align-items-center">
+                            <div>
+                                <span class="opacity-7 text-muted"><i data-feather="plus"></i></span>
+                            </div>
                             <a href="{{ route('pendaftaran5tahun.index') }}">
                             <h4 class="text-muted font-weight-normal ml-4 mt-2 w-100 text-truncate">PENDAFTARAN ULANG 5 TAHUN</h4>
                             </a>
