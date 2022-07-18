@@ -178,7 +178,7 @@
                     style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
                     Atas Nama</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data->nama2}}</td>
+                <td style="padding-left: 10px">{{ $data->nama3}}</td>
             </tr>
 
             <tr>
