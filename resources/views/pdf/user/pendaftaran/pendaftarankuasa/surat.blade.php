@@ -47,7 +47,7 @@
     }
 
     @page {
-    size: 27cm 25cm;
+        size: 27cm 25cm;
     }
 </style>
 
@@ -58,7 +58,7 @@
     <footer>
         <hr>
     </footer>
-   {{--  <div class="row" style="text-align: center">
+    {{-- <div class="row" style="text-align: center">
         <div class="column left">
             <img src="{{  public_path() }}/logo/prov.png" style="width:50px">
         </div>
@@ -74,113 +74,149 @@
                 Telp./Fax (0517) 21237 Email : uppdkandangan.dispenda@gmail.com
             </h6>
         </div>
-    </div>  --}}
+    </div> --}}
     <h4 style="text-align: center;"><u>SURAT KUASA</u> </h4>
     <br>
     <table id="table">
         <tbody>
-            {{--  @foreach ($data as $data)  --}}
+            {{-- @foreach ($data as $data) --}}
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;" colspan="3">Yang Bertanda Tangan Dibawah Ini :</td>
+                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;"
+                    colspan="3">Yang Bertanda Tangan Dibawah Ini :</td>
             </tr>
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">Nama</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    Nama</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['nama1']}}</td>
+                <td style="padding-left: 10px">{{ $data['nama1'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">Tempat / Tgl. Lahir</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    Tempat / Tgl. Lahir</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['tempat_lahir1']}} / {{ $data['tanggal_lahir1']}}</td>
+                <td style="padding-left: 10px">{{ $data['tempat_lahir1'] }} / {{ $data['tanggal_lahir1'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">Tanda Pengenal (No. KTP / SIM)</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    Tanda Pengenal (No. KTP / SIM)</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['no1']}}</td>
+                <td style="padding-left: 10px">{{ $data['no1'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">Alamat</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    Alamat</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['alamat1']}}</td>
+                <td style="padding-left: 10px">{{ $data['alamat1'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">No HP</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    No HP</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['no_hp1']}}</td>
+                <td style="padding-left: 10px">{{ $data['no_hp1'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;" colspan="3">Memberikan Kuasa Kepada :</td>
+                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;"
+                    colspan="3">Memberikan Kuasa Kepada :</td>
             </tr>
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">Nama</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    Nama</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['nama2']}}</td>
+                <td style="padding-left: 10px">{{ $data['nama2'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">Tempat / Tgl. Lahir</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    Tempat / Tgl. Lahir</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['tempat_lahir2']}} / {{ $data['tanggal_lahir2']}}</td>
+                <td style="padding-left: 10px">{{ $data['tempat_lahir2'] }} / {{ $data['tanggal_lahir2'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">Tanda Pengenal (No. KTP / SIM)</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    Tanda Pengenal (No. KTP / SIM)</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['no2']}}</td>
+                <td style="padding-left: 10px">{{ $data['no2'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">Alamat</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    Alamat</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['alamat2']}}</td>
+                <td style="padding-left: 10px">{{ $data['alamat2'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">No HP</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    No HP</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['no_hp2']}}</td>
+                <td style="padding-left: 10px">{{ $data['no_hp2'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;" colspan="3">Untuk mengurus Pembayaran Pajak Kendaraan / Perpanjangan <br> STNK motor/mobil dengan identitas sebagai berikut :</td>
+                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;"
+                    colspan="3">Untuk mengurus Pembayaran Pajak Kendaraan / Perpanjangan <br> STNK motor/mobil dengan
+                    identitas sebagai berikut :</td>
             </tr>
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">Atas Nama</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    Atas Nama</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['nama2']}}</td>
+                <td style="padding-left: 10px">{{ $data['nama2'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">Nomor Polisi</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    Nomor Polisi</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['nopol']}}</td>
+                <td style="padding-left: 10px">{{ $data['nopol'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">Merk / Tipe</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    Merk / Tipe</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['nopol']}}</td>
+                <td style="padding-left: 10px">{{ $data['merk'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">No Rangka</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    No Rangka</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['no_rangka']}}</td>
+                <td style="padding-left: 10px">{{ $data['no_rangka'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">No Mesin</td>
+                <td
+                    style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;">
+                    No Mesin</td>
                 <td style="text-align: center;padding-left: -40px">:</td>
-                <td style="padding-left: 10px">{{ $data['no_mesin']}}</td>
+                <td style="padding-left: 10px">{{ $data['no_mesin'] }}</td>
             </tr>
 
             <tr>
-                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;" colspan="3"><br> Demikian Surat Kuasa ini saya buat dengan kesadaran penuh dan tanpa ada paksaan dari pihak manapun</td>
+                <td style="text-align: left;padding-left:60px;padding-right:60px;border-spacing: 0px;white-space: nowrap;"
+                    colspan="3"><br> Demikian Surat Kuasa ini saya buat dengan kesadaran penuh dan tanpa ada paksaan
+                    dari pihak manapun</td>
             </tr>
 
         </tbody>
@@ -189,16 +225,16 @@
             border-collapse: collapse;margin-top:50px;
            ">
         <tbody>
-            <td >
-               <div class="row" style="text-align: center;float:left;width: 40%;padding-left:30px">
+            <td>
+                <div class="row" style="text-align: center;float:left;width: 40%;padding-left:30px">
 
-                <h4 style="margin-bottom: 60px;margin-top: -5px">
-                    <br>
-                   Penerima Kuasa
-                </h4>
-                <h4 style="margin-bottom: -6px">
-                    {{ $data['nama2'] }}
-                </h4>
+                    <h4 style="margin-bottom: 60px;margin-top: -5px">
+                        <br>
+                        Penerima Kuasa
+                    </h4>
+                    <h4 style="margin-bottom: -6px">
+                        {{ $data['nama2'] }}
+                    </h4>
 
                 </div>
             </td>
