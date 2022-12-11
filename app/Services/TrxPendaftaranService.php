@@ -11,6 +11,7 @@ use App\Models\PendaftaranDuplikat;
 use App\Models\PendaftaranKuasa;
 use App\Mail\SendEmail;
 use App\Models\Biodata;
+use App\Models\Fisik;
 use App\Models\Pendaftaran1tahunonline;
 use Illuminate\Support\Facades\Mail;
 
@@ -43,6 +44,10 @@ class TrxPendaftaranService
 
         if ($type == 'balik') {
             $find = PendaftaranBalik::find($id);
+        }
+
+        if ($type == 'fisik') {
+            $find = Fisik::find($id);
         }
 
         $toward =

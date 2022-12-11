@@ -74,6 +74,15 @@ Route::middleware('role:admin')->group(function () {
                 Route::post('/delete', [App\Http\Controllers\PendaftaranOnlineController::class, 'deletependaftaran1tahunonline'])->name('pendaftaran1tahunonlineadmin.delete');
             });
 
+            Route::prefix('/pendaftaranfisik')->group(function () {
+                Route::get('/', [App\Http\Controllers\PendaftaranFisikController::class, 'indexpendaftaranfisikadmin'])->name('pendaftaranfisikadmin.index');
+                Route::get('/data', [App\Http\Controllers\PendaftaranFisikController::class, 'data'])->name('pendaftaranfisikadmin.data');
+                Route::post('/store', [App\Http\Controllers\PendaftaranFisikController::class, 'storependaftaranfisik'])->name('pendaftaranfisikadmin.store');
+                Route::get('/show', [App\Http\Controllers\PendaftaranFisikController::class, 'showpendaftaranfisik'])->name('pendaftaranfisikadmin.show');
+                Route::post('/update', [App\Http\Controllers\PendaftaranFisikController::class, 'updatependaftaranfisik'])->name('pendaftaranfisikadmin.update');
+                Route::post('/delete', [App\Http\Controllers\PendaftaranFisikController::class, 'deletependaftaranfisik'])->name('pendaftaranfisikadmin.delete');
+            });
+
             Route::prefix('/pendaftaran5tahun')->group(function () {
                 Route::get('/', [App\Http\Controllers\Pendaftaran5tahunController::class, 'indexpendaftaran5tahunadmin'])->name('pendaftaran5tahunadmin.index');
                 Route::get('/data', [App\Http\Controllers\Pendaftaran5tahunController::class, 'data'])->name('pendaftaran5tahunadmin.data');
@@ -129,6 +138,11 @@ Route::middleware('role:admin')->group(function () {
             Route::prefix('/pendaftaran1tahunonlineadmin')->group(function () {
                 Route::any('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaran1tahunonlineadminpdf'])->name('pdf.1tahunonlineadmin');
                 Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftaran1tahunonlinedetailadminpdf'])->name('pdf.1tahunonlineadmindetail');
+            });
+
+            Route::prefix('/pendaftaranfisikadmin')->group(function () {
+                Route::any('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaranfisikadminpdf'])->name('pdf.fisikadmin');
+                Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftaranfisikdetailadminpdf'])->name('pdf.fisikadmindetail');
             });
 
             Route::prefix('/pendaftaran5tahunadmin')->group(function () {
@@ -192,6 +206,11 @@ Route::middleware('role:user')->group(function () {
             Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftaran1tahunonlinedetailpdf'])->name('pdf.1tahunonlinedetail');
         });
 
+        Route::prefix('/pendaftaranfisik')->group(function () {
+            Route::get('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaranfisikpdf'])->name('pdf.fisik');
+            Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftaranfisikdetailpdf'])->name('pdf.fisikdetail');
+        });
+
         Route::prefix('/pendaftaran5tahun')->group(function () {
             Route::get('/', [App\Http\Controllers\PdfController::class, 'indexpendaftaran5tahunpdf'])->name('pdf.5tahun');
             Route::get('/detail/{id}', [App\Http\Controllers\PdfController::class, 'indexpendaftaran5tahundetailpdf'])->name('pdf.5tahundetail');
@@ -241,6 +260,15 @@ Route::middleware('role:user')->group(function () {
             Route::get('/show', [App\Http\Controllers\PendaftaranOnlineController::class, 'showpendaftaran1tahunonline'])->name('pendaftaran1tahunonline.show');
             Route::post('/update', [App\Http\Controllers\PendaftaranOnlineController::class, 'updatependaftaran1tahunonline'])->name('pendaftaran1tahunonline.update');
             Route::post('/delete', [App\Http\Controllers\PendaftaranOnlineController::class, 'deletependaftaran1tahunonline'])->name('pendaftaran1tahunonline.delete');
+        });
+
+        Route::prefix('/pendaftaranfisik')->group(function () {
+            Route::get('/', [App\Http\Controllers\PendaftaranFisikController::class, 'indexpendaftaranfisik'])->name('pendaftaranfisik.index');
+            Route::get('/data', [App\Http\Controllers\PendaftaranFisikController::class, 'data'])->name('pendaftaran1tahun.data');
+            Route::post('/store', [App\Http\Controllers\PendaftaranFisikController::class, 'storependaftaranfisik'])->name('pendaftaranfisik.store');
+            Route::get('/show', [App\Http\Controllers\PendaftaranFisikController::class, 'showpendaftaranfisik'])->name('pendaftaranfisik.show');
+            Route::post('/update', [App\Http\Controllers\PendaftaranFisikController::class, 'updatependaftaranfisik'])->name('pendaftaranfisik.update');
+            Route::post('/delete', [App\Http\Controllers\PendaftaranFisikController::class, 'deletependaftaranfisik'])->name('pendaftaranfisik.delete');
         });
 
         Route::prefix('/pendaftaran5tahun')->group(function () {

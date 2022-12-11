@@ -9,6 +9,22 @@ class UploadRepository
         //
     }
 
+    public function uploadfisik($file)
+    {
+        $file_path = 'kosong';
+        if ($file != null) {
+            $file_path = $file->store(
+                'file',
+                'public'
+            );
+        }
+
+
+        return $data = [
+            'file' => $file_path
+        ];
+    }
+
     public function uploadpendaftaran1tahun($ktp, $pajak, $stnk, $bpkb)
     {
         $ktp_path = 'kosong';
