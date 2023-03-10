@@ -15,9 +15,9 @@ class SuratKuasaService
     public function getDataSuratKuasa($id = null, $user_id = null)
     {
         if ($id === null && $user_id == null) {
-            $data = SuratKuasa::with('biodata')->get();
+            $data = SuratKuasa::with('biodata')->orderBy('id', 'DESC')->get();
         } elseif ($id === null && $user_id != null) {
-            $data = SuratKuasa::where('user_id', $user_id)->get();
+            $data = SuratKuasa::where('user_id', $user_id)->orderBy('id', 'DESC')->get();
         } else {
             $data =  SuratKuasa::where('id', $id)->first();
         }

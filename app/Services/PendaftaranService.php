@@ -24,9 +24,9 @@ class PendaftaranService
     public function getDataPendaftaran1tahun($id = null, $user_id = null)
     {
         if ($id === null && $user_id == null) {
-            $data = Pendaftaran1tahun::with('biodata')->get();
+            $data = Pendaftaran1tahun::with('biodata')->orderBy('id', 'DESC')->get();
         } elseif ($id === null && $user_id != null) {
-            $data = Pendaftaran1tahun::where('user_id', $user_id)->get();
+            $data = Pendaftaran1tahun::where('user_id', $user_id)->orderBy('id', 'DESC')->get();
         } else {
             $data =  Pendaftaran1tahun::where('id', $id)->first();
         }
@@ -36,9 +36,9 @@ class PendaftaranService
     public function getDataPendaftaran1tahunonline($id = null, $user_id = null)
     {
         if ($id === null && $user_id == null) {
-            $data = Pendaftaran1tahunonline::with('biodata')->get();
+            $data = Pendaftaran1tahunonline::with('biodata')->orderBy('id', 'DESC')->get();
         } elseif ($id === null && $user_id != null) {
-            $data = Pendaftaran1tahunonline::where('user_id', $user_id)->get();
+            $data = Pendaftaran1tahunonline::where('user_id', $user_id)->orderBy('id', 'DESC')->get();
         } else {
             $data =  Pendaftaran1tahunonline::where('id', $id)->first();
         }

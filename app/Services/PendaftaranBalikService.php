@@ -18,9 +18,9 @@ class PendaftaranBalikService
     function getDataPendaftaranBalik($id = null, $user_id = null)
     {
         if ($id === null && $user_id == null) {
-            $data = PendaftaranBalik::with('biodata')->get();
+            $data = PendaftaranBalik::with('biodata')->orderBy('id', 'DESC')->get();
         } elseif ($id === null && $user_id != null) {
-            $data = PendaftaranBalik::where('user_id', $user_id)->get();
+            $data = PendaftaranBalik::where('user_id', $user_id)->orderBy('id', 'DESC')->get();
         } else {
             $data =  PendaftaranBalik::where('id', $id)->first();
         }

@@ -21,9 +21,9 @@ class Pendaftaran5tahunService
     function getDataPendaftaran5tahun($id = null, $user_id = null)
     {
         if ($id === null && $user_id == null) {
-            $data = Pendaftaran5tahun::with('biodata')->get();
+            $data = Pendaftaran5tahun::with('biodata')->orderBy('id', 'DESC')->get();
         } elseif ($id === null && $user_id != null) {
-            $data = Pendaftaran5tahun::where('user_id', $user_id)->get();
+            $data = Pendaftaran5tahun::where('user_id', $user_id)->orderBy('id', 'DESC')->get();
         } else {
             $data =  Pendaftaran5tahun::where('id', $id)->first();
         }

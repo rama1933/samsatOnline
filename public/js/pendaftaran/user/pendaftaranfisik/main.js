@@ -102,7 +102,7 @@ function edit(id) {
             $('#nopolEdit').val(response['nopol']);
             $('#norangkaEdit').val(response['no_rangka']);
             $('#nomesinEdit').val(response['no_mesin']);
-            $('#tempatEdit').prepend('<option selected="selected" value="' + response.tempat + '">' + response.tempat + '</option>');
+            $('#tempatEdit').val(response['tempat']);
         }
     })
 }

@@ -17,9 +17,9 @@ class PendaftaranFisikService
     public function getDataPendaftaranfisik($id = null, $user_id = null)
     {
         if ($id === null && $user_id == null) {
-            $data = Fisik::with('biodata')->get();
+            $data = Fisik::with('biodata')->orderBy('id', 'DESC')->get();
         } elseif ($id === null && $user_id != null) {
-            $data = Fisik::where('user_id', $user_id)->get();
+            $data = Fisik::where('user_id', $user_id)->orderBy('id', 'DESC')->get();
         } else {
             $data =  Fisik::where('id', $id)->first();
         }

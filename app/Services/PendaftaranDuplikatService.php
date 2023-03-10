@@ -17,9 +17,9 @@ class PendaftaranDuplikatService
     function getDataPendaftaranDuplikat($id = null, $user_id = null)
     {
         if ($id === null && $user_id == null) {
-            $data = PendaftaranDuplikat::with('biodata')->get();
+            $data = PendaftaranDuplikat::with('biodata')->orderBy('id', 'DESC')->get();
         } elseif ($id === null && $user_id != null) {
-            $data = PendaftaranDuplikat::where('user_id', $user_id)->get();
+            $data = PendaftaranDuplikat::where('user_id', $user_id)->orderBy('id', 'DESC')->get();
         } else {
             $data =  PendaftaranDuplikat::where('id', $id)->first();
         }

@@ -17,9 +17,9 @@ class PendaftaranKuasaService
     public function getDataPendaftaranKuasa($id = null, $user_id = null)
     {
         if ($id === null && $user_id == null) {
-            $data = PendaftaranKuasa::with('biodata')->get();
+            $data = PendaftaranKuasa::with('biodata')->orderBy('id', 'DESC')->get();
         } elseif ($id === null && $user_id != null) {
-            $data = PendaftaranKuasa::where('user_id', $user_id)->get();
+            $data = PendaftaranKuasa::where('user_id', $user_id)->orderBy('id', 'DESC')->get();
         } else {
             $data =  PendaftaranKuasa::where('id', $id)->first();
         }
